@@ -1,6 +1,12 @@
 #!/bin/bash
 
+
 ros_version=$1
+if [ $# -eq 0 ]
+  then
+    echo "defualting the ros version to melodic"
+    ros_version=melodic
+fi
 
 echo "===================================="
 echo "Cleaning existing Mowito installs"
@@ -21,6 +27,7 @@ pkg_names=(
     executive
     task-executive
     controller-executive
+    recovery-executive
     global-planner
 )
 
