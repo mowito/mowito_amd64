@@ -2,7 +2,7 @@
 
   
 
-# Steps for runing robot using  Mowito’s Nav-stack (release 20.3.0)
+# Steps for runing robot using  Mowito’s Nav-stack (release 20.06.00)
 
   
 
