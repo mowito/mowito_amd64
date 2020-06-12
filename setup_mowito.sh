@@ -16,3 +16,12 @@ BASEDIR=$(dirname "$0")
 # echo "$BASEDIR"
 
 sudo dpkg -i $BASEDIR/debians/ros-${ros_version}-*.deb
+
+# registering the user
+echo ""
+echo "=============================="
+echo "==== ROBOT REGISTRATION ======"
+echo "=============================="
+source /opt/ros/${ros_version}/setup.bash
+rosrun mlicense robot_reg.py
+
