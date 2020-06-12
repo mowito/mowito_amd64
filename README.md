@@ -1,17 +1,18 @@
 # mowito
 
-  
-
 # Steps for runing robot using  Mowito’s Nav-stack (release 20.06.00)
 
+## User Registration
+Register your self on this website <br>
+https://mowito.in/register.html <br>
   
 
 ## setting up the mowito
 
 1. Clone the repo in the home directory, using <br>
 
-`git clone https://gitlab.com/mowito_release/mowito.git ~/mowito`<br>
-`git -C ~/mowito checkout ros_kinetic_release_20.03_amd64`<br>
+`git clone -b melodic https://gitlab.com/mowito_release/mowito.git ~/mowito`<br>
+
 
 2. Remove any previous installation of Mowito stack (replace 'melodic' with your ros version)<br>
 `cd ~/mowito`<br>
