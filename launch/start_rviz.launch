@@ -1,0 +1,4 @@
+<launch>
+	<arg name="rviz_file" default="default.rviz"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(env HOME)/mowito/launch/$(arg rviz_file)"/>
+</launch>

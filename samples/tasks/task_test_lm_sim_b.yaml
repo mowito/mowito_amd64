@@ -1,0 +1,5 @@
+id : 1
+type : 0
+duration : 0.0
+end_behaviour : 0.0
+route: "~/mowito_ws/src/chief_executive/samples/routes/test_lm_sim_b.yaml"

@@ -1,0 +1,7 @@
+controllers:
+  - {name: trajectory_planner, type: "trajectory_planner/TrajectoryPlannerROS"}
+  - {name: pure_pursuit_controller, type: "controller/PurePursuitController"}
+
+controller_executions:
+  - {name: trajectory_planner_execution, type: "trajectory_planner/TrajectoryPlannerROSExecution"}
+  - {name: pure_pursuit_controller_execution, type: "controller/PurePursuitControllerExecution"}

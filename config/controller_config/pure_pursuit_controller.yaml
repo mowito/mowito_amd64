@@ -1,0 +1,15 @@
+pure_pursuit_controller:
+  min_lookahead: 0.2
+  max_lookahead: 2.0
+  max_acceleration: 0.5
+  max_vel: 0.2
+  min_vel: 0.1
+  max_omega: 0.5
+  max_turn_radius: 0.2
+  min_turn_radius: 0.1
+  max_radius_omega: 20.0
+  max_y_deviation: 0.05
+  max_path_deviation: 1.0
+  max_theta_deviation: 0.5
+  transform_tolerance: 0.5
+  holonomic_robot: true
