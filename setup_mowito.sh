@@ -12,7 +12,7 @@ echo "Installing Mowito packages"
 echo "===================================="
 
 # get the address of the directory
-if [ -d "~/mowito" ] 
+if [ -d "$HOME/mowito" ] 
 then
     echo "Directory ~/mowito exists." 
 else
