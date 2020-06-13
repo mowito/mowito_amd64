@@ -59,5 +59,5 @@ then
     echo "$CURR_DIR is the home directory"
 else 
     echo "deleting the old directory of $CURR_DIR"
-    rm -r  "$CURR_DIR"
+    sudo rm -r  "$CURR_DIR"
 fi
