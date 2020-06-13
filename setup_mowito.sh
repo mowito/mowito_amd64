@@ -9,7 +9,7 @@ fi
 
 
 # create the mwoito dir
-BASEDIR="$(dirname $(realpath $0))"
+CURR_DIR="$(dirname $(realpath $0))"
 
 if [ -d "$HOME/mowito" ] 
 then
@@ -18,27 +18,44 @@ else
     echo "creating ~/mowito directory."
     mkdir ~/mowito
 fi
-echo "$BASEDIR"
-cp -r "$BASEDIR"/. ~/mowito/
 
+FINAL_DIR=$HOME/mowito
+echo "$CURR_DIR"
+echo "$FINAL_DIR"
 
-echo "===================================="
-echo "Installing Mowito packages"
-echo "===================================="
+if [ $FINAL_DIR = $CURR_DIR ]
+then 
+    echo "Already were in Mowito directory"
+else 
+    echo "Copying the data from $CURR_DIR to $FINAL_DIR"
+    cp -r "$CURR_DIR"/. "$FINAL_DIR"
+fi
 
-# installing the dependdencies
-sudo apt install ros-${ros_version}-voxel-grid -y
-sudo apt install ros-${ros_version}-openslam-gmapping -y
-sudo apt install ros-${ros_version}-voxel-grid -y
+# echo "===================================="
+# echo "Installing Mowito packages"
+# echo "===================================="
 
-sudo dpkg -i ~/mowito/debians/ros-${ros_version}-*.deb
+# # installing the dependdencies
+# sudo apt install ros-${ros_version}-voxel-grid -y
+# sudo apt install ros-${ros_version}-openslam-gmapping -y
+# sudo apt install ros-${ros_version}-voxel-grid -y
 
-# registering the user
-echo ""
-echo "=============================="
-echo "==== ROBOT REGISTRATION ======"
-echo "=============================="
-source /opt/ros/${ros_version}/setup.bash
-rosrun mlicense robot_reg.py
+# sudo dpkg -i ~/mowito/debians/ros-${ros_version}-*.deb
 
-rm -rf  "$BASEDIR"
+# # registering the user
+# echo ""
+# echo "=============================="
+# echo "==== ROBOT REGISTRATION ======"
+# echo "=============================="
+# source /opt/ros/${ros_version}/setup.bash
+# rosrun mlicense robot_reg.py
+
+# 
+
+if [ $FINAL_DIR = $CURR_DIR ]
+then 
+    echo "Already were in Mowito directory"
+else 
+    echo "deleting the old directory of $CURR_DIR"
+    rm -rf  "$CURR_DIR"
+fi
