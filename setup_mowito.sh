@@ -28,7 +28,7 @@ then
     echo "Already were in Mowito directory"
 else 
     echo "Copying the data from $CURR_DIR to $FINAL_DIR"
-    sudo cp -r "$CURR_DIR"/. "$FINAL_DIR"
+    cp -r "$CURR_DIR"/. "$FINAL_DIR"
 fi
 
 # echo "===================================="
@@ -59,5 +59,5 @@ then
     echo "$CURR_DIR is the home directory"
 else 
     echo "deleting the old directory of $CURR_DIR"
-    sudo rm -r  "$CURR_DIR"
+    rm -r  "$CURR_DIR"
 fi
