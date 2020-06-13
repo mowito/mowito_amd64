@@ -12,14 +12,22 @@ echo "Installing Mowito packages"
 echo "===================================="
 
 # get the address of the directory
-BASEDIR=$(dirname "$0")
-# echo "$BASEDIR"
+if [ -d "~/mowito" ] 
+then
+    echo "Directory ~/mowito exists." 
+else
+    echo "creating ~/mowito directory."
+    mkdir ~/mowito
+fi
+pwd
+mv "$PWD"/* ~/mowito/
+pwd
 # installing the dependdencies
 sudo apt install ros-${ros_version}-voxel-grid -y
 sudo apt install ros-${ros_version}-openslam-gmapping -y
 sudo apt install ros-${ros_version}-voxel-grid -y
 
-sudo dpkg -i $BASEDIR/debians/ros-${ros_version}-*.deb
+sudo dpkg -i ~/mowito/debians/ros-${ros_version}-*.deb
 
 # registering the user
 echo ""
