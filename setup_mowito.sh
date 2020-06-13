@@ -7,11 +7,8 @@ if [ $# -eq 0 ]
     ros_version=melodic
 fi
 
-echo "===================================="
-echo "Installing Mowito packages"
-echo "===================================="
 
-# get the address of the directory
+# create the mwoito dir
 BASEDIR="$(dirname $(realpath $0))"
 
 if [ -d "$HOME/mowito" ] 
@@ -22,7 +19,12 @@ else
     mkdir ~/mowito
 fi
 echo "$BASEDIR"
-cp -r "$BASEDIR"/* ~/mowito/
+cp -r "$BASEDIR"/. ~/mowito/
+
+
+echo "===================================="
+echo "Installing Mowito packages"
+echo "===================================="
 
 # installing the dependdencies
 sudo apt install ros-${ros_version}-voxel-grid -y
