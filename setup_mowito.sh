@@ -31,26 +31,25 @@ else
     sudo cp -r "$CURR_DIR"/. "$FINAL_DIR"
 fi
 
-# echo "===================================="
-# echo "Installing Mowito packages"
-# echo "===================================="
+echo "===================================="
+echo "Installing Mowito packages"
+echo "===================================="
 
-# # installing the dependdencies
-# sudo apt install ros-${ros_version}-voxel-grid -y
-# sudo apt install ros-${ros_version}-openslam-gmapping -y
-# sudo apt install ros-${ros_version}-voxel-grid -y
+# installing the dependdencies
+sudo apt install ros-${ros_version}-voxel-grid -y
+sudo apt install ros-${ros_version}-openslam-gmapping -y
+sudo apt install ros-${ros_version}-voxel-grid -y
 
-# sudo dpkg -i ~/mowito/debians/ros-${ros_version}-*.deb
+sudo dpkg -i ~/mowito/debians/ros-${ros_version}-*.deb
 
-# # registering the user
-# echo ""
-# echo "=============================="
-# echo "==== ROBOT REGISTRATION ======"
-# echo "=============================="
-# source /opt/ros/${ros_version}/setup.bash
-# rosrun mlicense robot_reg.py
+# registering the user
+echo ""
+echo "=============================="
+echo "==== ROBOT REGISTRATION ======"
+echo "=============================="
+source /opt/ros/${ros_version}/setup.bash
+rosrun mlicense robot_reg.py
 
-# 
 
 if [ $FINAL_DIR = $CURR_DIR ]
 then 
