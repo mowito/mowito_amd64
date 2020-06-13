@@ -28,7 +28,7 @@ then
     echo "Already were in Mowito directory"
 else 
     echo "Copying the data from $CURR_DIR to $FINAL_DIR"
-    cp -r "$CURR_DIR"/. "$FINAL_DIR"
+    sudo cp -r "$CURR_DIR"/. "$FINAL_DIR"
 fi
 
 # echo "===================================="
