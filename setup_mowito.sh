@@ -20,7 +20,7 @@ else
     mkdir ~/mowito
 fi
 pwd
-mv "$PWD"/* ~/mowito/
+cp -r "$PWD"/* ~/mowito/
 pwd
 # installing the dependdencies
 sudo apt install ros-${ros_version}-voxel-grid -y
@@ -37,3 +37,4 @@ echo "=============================="
 source /opt/ros/${ros_version}/setup.bash
 rosrun mlicense robot_reg.py
 
+sudo rmdir "$PWD"
