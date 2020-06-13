@@ -1,8 +1,24 @@
 <launch>
-    <arg name="map_name" default="meeting_room1"/>
+    <arg name="map_name" default="mowito"/>
     <arg name="respawn" default="true"/>
     <arg name="debug" default="false"/>
+    <arg name="world_name" default="mowito"/>
+    <arg name="gui" default="true"/>
 
+
+    <!-- SIMULATION -->
+    <!-- rosbot and the rviz-->
+    <include file="$(find rosbot_description)/launch/rosbot_rviz.launch">
+        <arg name="rviz_file" value="rosbot.rviz"/>
+    </include>
+
+    <!-- the world -->
+    <include file="$(find rosbot_gazebo)/launch/rosbot_world.launch">
+        <arg name="world" value="$(find rosbot_gazebo)/worlds/$(arg world_name).world"/>
+        <arg name="gui" value="$(arg gui)"/>
+    </include>
+
+    <!-- NAVIGATION -->
     <!-- localization node-->
     <include file="$(env HOME)/mowito/launch/start_mwpfl.launch">
         <arg name="map_name" value="$(arg map_name)"/>

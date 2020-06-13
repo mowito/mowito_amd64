@@ -5,7 +5,7 @@
   <arg name="respawn" default="false"/>
   <arg name="output_log" default="screen"/>
 
-  <arg name="mission_executive_config" default="$(env HOME)/mowito/config/mission_executive_config/standard_nav.yaml"/>
+  <arg name="mission_executive_config" default="$(env HOME)/mowito/config/mission_executive_config/mission_executive_params.yaml"/>
 
   <node pkg="timed_roslaunch" type="timed_roslaunch.sh" args="10 $(env HOME)/mowito/launch/start_costmap.launch"
         name="costmap_launcher" output="screen"/>
