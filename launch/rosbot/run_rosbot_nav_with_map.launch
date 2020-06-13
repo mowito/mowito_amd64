@@ -1,0 +1,24 @@
+<launch>
+    <arg name="map_name" default="meeting_room1"/>
+    <arg name="respawn" default="true"/>
+    <arg name="debug" default="false"/>
+
+    <include file="$(find rosbot_ekf)/launch/all.launch"/>
+    <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+    
+    <!-- localization node-->
+    <include file="$(env HOME)/mowito/launch/start_mwpfl.launch">
+        <arg name="map_name" value="$(arg map_name)"/>
+        <arg name="robot_init_x" value="0"/>
+        <arg name="robot_init_y" value="0"/>
+        <arg name="robot_init_phi" value="0"/>
+    </include>
+
+    <!-- nav server-->
+    <include file="$(env HOME)/mowito/launch/start_nav_server.launch">
+        <arg name="mission_executive_config" value="$(env HOME)/mowito/config/mission_executive_config/standard_nav.yaml"/>
+        <arg name="respawn" value="$(arg respawn)"/>
+        <arg name="gp_debug" value="$(arg debug)"/>
+        <arg name="ctrl_debug" value="$(arg debug)"/>  
+    </include>
+</launch>

@@ -3,8 +3,8 @@
 ros_version=$1
 if [ $# -eq 0 ]
   then
-    echo "defualting the ros version to melodic"
-    ros_version=melodic
+    echo "defualting the ros version to kinetic"
+    ros_version=kinetic
 fi
 
 echo "===================================="
@@ -14,6 +14,10 @@ echo "===================================="
 # get the address of the directory
 BASEDIR=$(dirname "$0")
 # echo "$BASEDIR"
+# installing the dependdencies
+sudo apt install ros-${ros_version}-voxel-grid -y
+sudo apt install ros-${ros_version}-openslam-gmapping -y
+sudo apt install ros-${ros_version}-voxel-grid -y
 
 sudo dpkg -i $BASEDIR/debians/ros-${ros_version}-*.deb
 

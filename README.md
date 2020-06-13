@@ -1,17 +1,18 @@
 # mowito
 
-  
-
 # Steps for runing robot using  Mowito’s Nav-stack (release 20.06.00)
 
+## User Registration
+Register yourself on this website <br>
+https://mowito.in/register.html <br>
   
 
 ## setting up the mowito
 
 1. Clone the repo in the home directory, using <br>
 
-`git clone https://gitlab.com/mowito_release/mowito.git ~/mowito`<br>
-`git -C ~/mowito checkout ros_kinetic_release_20.03_amd64`<br>
+`git clone -b kinetic https://gitlab.com/mowito_release/mowito.git ~/mowito`<br>
+
 
 2. Remove any previous installation of Mowito stack (replace 'kinetic' with your ros version)<br>
 `cd ~/mowito`<br>
@@ -20,10 +21,19 @@
 3. Install the new Mowito stack<br>
 `./setup_mowito.sh kinetic`
 	
-### Running the Mowito navigation
+## Running the Mowito Navigation Stack
 
-0. If you dont have a robot, run the your gazebo simulator. And make sure the laser is being published in `/scan` topic, with frame 'laser'
-and odom frame is 'odom'<br>
+## on Simulation
+If you do not have a robot, use our simulator to quickly test and play with Mowito's Navigation Stack. You can find the simulator and the instructions to use it on this gitlab repo:
+[https://gitlab.com/mowito_release/mowito_sim](https://gitlab.com/mowito_release/mowito_sim)
+
+```
+NOTE: DO NOT follow the instructions menitioned below,
+if you are running the Mowito's Simulator. Use the 
+instruction mentioned in repo of the simulator.
+```
+
+## on Real Robot
 
 ### A. Running Navigation with no Map / Navigation to create Map
 

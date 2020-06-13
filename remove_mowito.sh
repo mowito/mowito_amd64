@@ -4,8 +4,8 @@
 ros_version=$1
 if [ $# -eq 0 ]
   then
-    echo "defualting the ros version to melodic"
-    ros_version=melodic
+    echo "defualting the ros version to kinetic"
+    ros_version=kinetic
 fi
 
 echo "===================================="

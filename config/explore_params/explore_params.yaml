@@ -1,0 +1,12 @@
+# configuration for map Exploration 
+robot_base_frame: base_link
+costmap_topic: /map
+costmap_updates_topic: /map_updates
+visualize: true
+planner_frequency: 2
+potential_scale: 3.0
+orientation_scale: 0.0
+gain_scale: 1.0
+min_frontier_size: 1.2
+tf_timeout: 2.0
+retries: 50

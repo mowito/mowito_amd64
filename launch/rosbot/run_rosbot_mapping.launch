@@ -1,0 +1,23 @@
+<launch>
+
+    <arg name="scan_topic" default="/scan" /> 
+    <arg name="laser_frame" default="laser" />
+    <arg name="odom_frame" default="odom" />
+    <arg name="base_frame" default="base_link" />
+    <arg name="map_frame" default="map" />
+
+    <node pkg="tf" type="static_transform_publisher" name="ROSbot2_laser" args="0 0 0 3.14 0 0 base_link laser 10" />
+
+    <!-- actual rosbot sensor-->
+    <include file="$(find rosbot_ekf)/launch/all.launch"/>
+    <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+
+    <include file="$(find mw_run)/launch/start_mw_mapping.launch">
+        <arg name="scan_topic" value="/scan" /> 
+        <arg name="laser_frame" value="laser" />
+        <arg name="odom_frame" value="odom" />
+        <arg name="base_frame" value="base_link" />
+        <arg name="map_frame" value="map" />
+    </include>
+ 
+</launch>
