@@ -54,7 +54,7 @@ rosrun mlicense robot_reg.py
 if [ $FINAL_DIR = $CURR_DIR ]
 then 
     echo "Already were in Mowito directory"
-elif [ $CURR_DIR = $HOME]
+elif [ $CURR_DIR = $HOME ]
 then
     echo "$CURR_DIR is the home directory"
 else 
