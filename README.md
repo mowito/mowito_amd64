@@ -11,7 +11,7 @@ https://mowito.in/register.html <br>
 
 1. Clone the repo in the home directory, using <br>
 
-`git clone -b kinetic https://gitlab.com/mowito_release/mowito.git ~/mowito`<br>
+`git clone -b kinetic https://gitlab.com/mowito_release/mowito.git`<br>
 
 
 2. Remove any previous installation of Mowito stack (replace 'kinetic' with your ros version)<br>
