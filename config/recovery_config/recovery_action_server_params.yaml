@@ -1,0 +1,11 @@
+recoveries:
+  - {name: clear_costmap, type: "recovery/ClearCostmapRecovery"}
+  - {name: rotate, type: "recovery/RotateRecovery"}
+  - {name: back_up, type: "recovery/BackUpRecovery"}
+  - {name: stepback_and_steerturn, type: "recovery/StepBackAndSteerTurnRecovery"}
+
+recovery_executions:
+  - {name: clear_costmap_execution, type: "recovery/ClearCostmapRecoveryExecution"}
+  - {name: rotate_execution, type: "recovery/RotateRecoveryExecution"}
+  - {name: back_up_execution, type: "recovery/BackUpRecoveryExecution"}
+  - {name: stepback_and_steerturn_execution, type: "recovery/StepBackAndSteerTurnRecoveryExecution"}

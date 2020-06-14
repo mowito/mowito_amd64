@@ -1,0 +1,5 @@
+back_up:
+  frequency: 20.0
+  distance: -0.5
+  global_frame: map
+  robot_base_frame: base_link

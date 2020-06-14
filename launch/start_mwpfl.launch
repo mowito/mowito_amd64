@@ -3,23 +3,18 @@
     <arg name="sim" default="false" /> 
     <arg name="scan_topic" default="/scan"/>
     <arg name="laser_frame" default="laser" />
-    <arg name="map_name" default="rucha_map2" />
+    <arg name="map_address" default="$(find mw_mapping)/maps/mowito_map.yaml" />
     <arg name="robot_init_x" default="0"/>
     <arg name="robot_init_y" default="0"/>
     <arg name="robot_init_phi" default="0"/>
      
     <param name="use_sim_time" value="$(arg sim)"/>
      <!-- static transform between laser and the robot-->
-    <node pkg="tf" type="static_transform_publisher" name="base_2_laser" args="0 0 0 3.14 0 0 base_link $(arg laser_frame) 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_2_laser" args="0 0 0 3.14 0 0 base_link $(arg laser_frame) 100" unless="$(arg sim)"/>
 
-    <!-- transform between odom frame to base link -->
-    <!-- <node pkg="utils" type="msg_to_tf" name="msg_to_tf"> -->
-        <!--<param name="odometry_topic" value="/slamware_ros_sdk_server_node/odom"/>-->
-        <!-- <param name="pose_topic" value="pose"/> -->
-        <!-- <param name="child_frame_id" value="base_link"/> -->
-    <!-- </node> -->
+
      <!-- MAP SERVER -->
-    <node name="map_server" pkg="map_server" type="map_server" args="/home/husarion/$(arg map_name).yaml" output="screen">
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_address)" output="screen">
     </node>
 
     <!-- AMCL -->

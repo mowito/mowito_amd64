@@ -1,0 +1,5 @@
+rotate:
+  frequency: 20.0
+  angle: 3.14
+  global_frame: map
+  robot_base_frame: base_link
