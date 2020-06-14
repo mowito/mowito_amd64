@@ -24,18 +24,11 @@ https://mowito.in/register.html <br>
 	
 ## Running the Mowito Navigation Stack
 
-## on Simulation
-If you do not have a robot, use our simulator to quickly test and play with Mowito's Navigation Stack. You can find the simulator and the instructions to use it on this gitlab repo:
-[https://gitlab.com/mowito_release/mowito_sim](https://gitlab.com/mowito_release/mowito_sim)
+## For Simulation
 
-```
-NOTE: DO NOT follow the instructions menitioned below,
-if you are running the Mowito's Simulator. Use the 
-instruction mentioned in repo of the simulator.
-```
+For Simulation, check ~/mowito/launch/simulation for the required launch files. The procedures and names are similar to the launch files for running on the real robot (mentioned below). 
 
-## on Real Robot
-
+## On Real Robot
 ### A. Running Navigation with no Map / Navigation to create Map
 
 1. create a map using either of these three methods:<br><br>
