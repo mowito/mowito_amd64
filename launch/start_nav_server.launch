@@ -2,10 +2,11 @@
 <launch>
   <arg name="gp_debug" default="false"/>
   <arg name="ctrl_debug" default="false"/>
+  <arg name="rcvr_debug" default="false"/>
   <arg name="respawn" default="false"/>
   <arg name="output_log" default="screen"/>
 
-  <arg name="mission_executive_config" default="$(env HOME)/mowito/config/mission_executive_config/standard_nav.yaml"/>
+  <arg name="mission_executive_config" default="$(env HOME)/mowito/config/mission_executive_config/mission_executive_params.yaml"/>
 
   <node pkg="timed_roslaunch" type="timed_roslaunch.sh" args="10 $(env HOME)/mowito/launch/start_costmap.launch"
         name="costmap_launcher" output="screen"/>
@@ -20,6 +21,12 @@
     <arg name="debug" value="$(arg ctrl_debug)"/>
     <arg name="respawn" value="$(arg respawn)"/>
     <arg name="output_log" value="$(arg output_log)"/>
+  </include>
+
+
+  <include file="$(env HOME)/mowito/launch/start_recovery_executive.launch">
+    <arg name="debug" value="$(arg rcvr_debug)"/>
+    <arg name="respawn" value="$(arg respawn)"/>
   </include>
 
   <node name="mission_executive" type="mission_executive_node" pkg="executive" output="$(arg output_log)">
