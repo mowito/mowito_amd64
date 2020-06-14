@@ -28,6 +28,7 @@
         <arg name="sim" value="true"/>
     </include>
 
+    <!-- -for converting the odom msg to tf -->
     <node pkg="utils" type="msg_to_tf" name="msg_to_tf">
         <param name="odometry_topic" value="/odom"/>
     </node>

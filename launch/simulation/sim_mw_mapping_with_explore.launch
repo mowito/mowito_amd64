@@ -12,8 +12,6 @@
     <arg name="world_name" default="mowito"/>
     <arg name="gui" default="true"/>
 
-    <node pkg="tf" type="static_transform_publisher" name="ROSbot2_laser" args="0 0 0 3.14 0 0 base_link laser 10" />
-
     <!-- SIMULATION -->
     <!-- rosbot and the rviz-->
     <include file="$(find rosbot_description)/launch/rosbot_rviz.launch">
@@ -36,12 +34,18 @@
         <arg name="map_frame" value="map" />
     </include>
 
+    <!-- -for converting the odom msg to tf -->
+    <node pkg="utils" type="msg_to_tf" name="msg_to_tf">
+        <param name="odometry_topic" value="/odom"/>
+    </node>
+
     <!-- nav server -->
     <include file="$(env HOME)/mowito/launch/start_nav_server.launch">
         <arg name="mission_executive_config" default="$(env HOME)/mowito/config/mission_executive_config/exploration.yaml"/>
         <arg name="respawn" value="$(arg respawn)"/>
         <arg name="gp_debug" value="$(arg debug)"/>
-        <arg name="ctrl_debug" value="$(arg debug)"/>  
+        <arg name="ctrl_debug" value="$(arg debug)"/> 
+        <arg name="rcvr_debug" value="$(arg debug)"/>  
     </include>
 
     <include file="$(env HOME)/mowito/launch/start_explore.launch">
