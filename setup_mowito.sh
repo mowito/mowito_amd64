@@ -39,6 +39,8 @@ echo "===================================="
 sudo apt install ros-${ros_version}-voxel-grid -y
 sudo apt install ros-${ros_version}-openslam-gmapping -y
 sudo apt install ros-${ros_version}-voxel-grid -y
+sudo apt install ros-${ros_version}-joint-state-publisher -y
+sudo apt install ros-${ros_version}-joint-state-controller -y
 
 sudo dpkg -i ~/mowito/debians/ros-${ros_version}-*.deb
 
