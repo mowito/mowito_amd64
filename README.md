@@ -16,7 +16,7 @@ https://mowito.in/register.html <br>
 
 
 2. Remove any previous installation of Mowito stack (replace 'melodic' with your ros version)<br>
-`cd ~/mowito`<br>
+`cd ~/mowito_amd64`<br>
 `./remove_mowito.sh melodic`
  
 3. Install the new Mowito stack<br>
