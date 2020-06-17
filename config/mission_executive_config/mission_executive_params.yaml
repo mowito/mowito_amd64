@@ -1,0 +1,22 @@
+map_frame: map
+robot_frame: base_link
+loop_frequency: 20.0
+max_time_lag: 0.5
+decay: 0.9
+planner: "NavfnPlanner"
+controller: "trajectory_planner"
+plan_topic: "/plan"
+cmd_vel_topic: "/cmd_vel"
+route_topic: "/route"
+goal_queue_topic: "/goal_queue"
+tf_timeout: 2.0
+max_retries: 2
+min_distance_tolerance: 0.05
+min_angular_tolerance: 0.15
+controller_reset_timeout: 20.0
+# recovery timeouts
+recoveries:
+  clear_costmap: 5.0
+  rotate: 5.0
+  back_up: 7.0
+  stepback_and_steerturn: 10.0

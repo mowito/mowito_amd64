@@ -1,0 +1,30 @@
+stepback_and_steerturn:
+  duration: 1.0
+  linear_speed_limit: 0.3
+  angular_speed_limit: 1.0
+  linear_acceleration_limit: 4.0
+  angular_acceleration_limit: 3.2
+  controller_frequency: 20.0
+  simulation_frequency: 5.0
+
+  only_single_steering: true
+  trial_times: 5
+  obstacle_patience: 0.5
+  obstacle_check_frequency: 5.0
+  sim_angle_resolution: 0.1
+
+  # back
+  linear_vel_back: -0.2
+  step_back_length: 0.5
+  step_back_timeout: 15.0
+
+  # steer
+  linear_vel_steer: 0.2
+  angular_speed_steer: 0.5
+  turn_angle: 2.0
+  steering_timeout: 15.0
+
+  # forward
+  linear_vel_forward: 0.2
+  step_forward_length: 0.5
+  step_forward_timeout: 15.0
