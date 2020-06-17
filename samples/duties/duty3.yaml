@@ -1,0 +1,7 @@
+id : 3
+total_tasks : 2
+
+task1 : "~/mowito_ws/src/chief_executive/samples/tasks/task_test_lm_sim_a.yaml"
+task2 : "~/mowito_ws/src/chief_executive/samples/tasks/task_test_lm_sim_b.yaml"
+
+loop_enabled : true 
