@@ -16,7 +16,7 @@
 
     <!-- nav server-->
     <include file="$(env HOME)/mowito/launch/start_nav_server.launch">
-        <arg name="mission_executive_config" value="$(env HOME)/mowito/config/mission_executive_config/standard_nav.yaml"/>
+        <arg name="mission_executive_config" value="$(env HOME)/mowito/config/mission_executive_config/mission_executive_params.yaml"/>
         <arg name="respawn" value="$(arg respawn)"/>
         <arg name="gp_debug" value="$(arg debug)"/>
         <arg name="ctrl_debug" value="$(arg debug)"/>  
