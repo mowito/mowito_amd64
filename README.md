@@ -27,6 +27,22 @@ https://mowito.in/register.html <br>
 
 For Simulation, check ~/mowito/launch/simulation for the required launch files. The procedures and names are similar to the launch files for running on the real robot (mentioned below). 
 
+1.1.  **Navigation with Map, by giving goals through the rviz**<br><br>  
+`source /opt/ros/kinetic/setup.bash`<br>
+`roslaunch ~/mowito/launch/simulation/sim_mw_navigation.launch`<br>
+on rviz, give goals on the map, and the robot will move autnomously while creating the map<br><br>
+
+1.2. **Navigation without Map, by giving goals through the rviz**<br>
+`source /opt/ros/kinetic/setup.bash`<br>
+`roslaunch ~/mowito/launch/simulation/sim_mw_navigation_with_no_map.launch`<br><br>
+
+on rviz, give goals on the map, and the robot will move autnomously while creating the map<br><br>
+1.3. **Autonomous goal selection ,throuh Exploration**<br>
+`source /opt/ros/kinetic/setup.bash`<br>
+`roslaunch ~/mowito/launch/simulation/sim_mw_mapping_with_explore.launch`<br><br>
+
+on rviz you can see the robot automatically moving and exploring the area<br>
+
 ## On Real Robot
 
 ### A. Running Navigation with no Map / Navigation to create Map
