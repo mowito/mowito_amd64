@@ -18,9 +18,7 @@ Mowito's Navigation Stack documentation
 
    Installation
 
-   setup
-
-   how_to_use  
+   how_to_use
    
    Tips
 
