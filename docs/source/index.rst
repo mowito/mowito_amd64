@@ -3,13 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to mowito rosbot's documentation!
+Mowito's Navigation Stack documentation!
 =========================================
 
 
-   **Check out Mowito’s Navigation Stack**
+   **Mowito’s Navigation Stack**
 
-      Adapted from Husarion https://github.com/husarion/rosbot_description
+      
 
 
 
