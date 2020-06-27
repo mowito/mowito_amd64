@@ -10,7 +10,7 @@ Installing Mowito on Computer
 ------------------------------------------
 
 Ubuntu 18 - ROS Melodic
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Clone the repo in the home directory, using
 
@@ -28,7 +28,7 @@ Ubuntu 18 - ROS Melodic
 
 
 Ubuntu 16 - ROS Kinetic
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Clone the repo in the home directory, using
 
