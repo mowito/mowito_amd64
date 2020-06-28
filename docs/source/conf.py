@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = u'Simulating Mowito Rosbot'
+project = u'Mowito Navigation Stack'
 copyright = u'2020, Mowito'
 author = u'Mowito'
 
