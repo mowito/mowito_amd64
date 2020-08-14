@@ -13,7 +13,7 @@
     <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
 
     <group unless="$(arg cartographer)">
-    <include file="$(find mw_run)/launch/start_mw_mapping.launch">
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_mw_mapping.launch">
         <arg name="scan_topic" value="/scan" /> 
         <arg name="laser_frame" value="laser" />
         <arg name="odom_frame" value="odom" />
@@ -25,7 +25,7 @@
     <group if="$(arg cartographer)">
     <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(env HOME)/mowito/config/carto_config
+          -configuration_directory $(find mowito_rosbot)/config/carto_config
           -configuration_basename rosbot.lua"
       output="screen">
     </node>  
