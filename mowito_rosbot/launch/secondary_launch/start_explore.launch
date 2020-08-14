@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="debug" default="false"/>
+    <arg name="explore_params_config" default="$(find mowito_rosbot)/config/explore_params/explore_params.yaml"/>
+
+    <env name="ROSCONSOLE_CONFIG_FILE" value="$(find map_exploration)/custom_config.conf" if="$(arg debug)"/>
+
+    <node pkg="map_exploration" type="explore" respawn="false" name="explore" output="screen">
+      <rosparam command="load" file="$(arg explore_params_config)"/>
+    </node>
+
+</launch>

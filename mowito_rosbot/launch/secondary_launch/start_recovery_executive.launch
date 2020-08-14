@@ -1,0 +1,11 @@
+<launch>
+  <arg name="debug" default="false"/>
+  <arg name="respawn" default="false"/>
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find recovery_executive)/custom_config.conf" if="$(arg debug)"/>
+  <node name="recovery_executive" type="recovery_action_node" pkg="recovery_executive" output="screen" respawn="$(arg respawn)">
+    <rosparam command="load" file="$(find mowito_rosbot)/config/recovery_config/recovery_action_server_params.yaml"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/recovery_config/stepback_and_steerturn_params.yaml"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/recovery_config/rotate_params.yaml"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/recovery_config/back_up_params.yaml"/>
+  </node>
+</launch>

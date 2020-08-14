@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="gp_debug" default="false"/>
+  <arg name="ctrl_debug" default="false"/>
+  <arg name="rcvr_debug" default="false"/>
+  <arg name="respawn" default="false"/>
+  <arg name="output_log" default="screen"/>
+
+  <arg name="mission_executive_config" default="$(find mowito_rosbot)/config/mission_executive_config/mission_executive_params.yaml"/>
+
+  <node pkg="timed_roslaunch" type="timed_roslaunch.sh" args="10 $(find mowito_rosbot)/launch/secondary_launch/start_costmap.launch"
+        name="costmap_launcher" output="screen"/>
+
+  <include file="$(find mowito_rosbot)/launch/secondary_launch/start_global_planner.launch">
+    <arg name="debug" value="$(arg gp_debug)"/>
+    <arg name="respawn" value="$(arg respawn)"/>
+    <arg name="output_log" value="$(arg output_log)"/>
+  </include>
+
+  <include file="$(find mowito_rosbot)/launch/secondary_launch/start_controller_executive.launch">
+    <arg name="debug" value="$(arg ctrl_debug)"/>
+    <arg name="respawn" value="$(arg respawn)"/>
+    <arg name="output_log" value="$(arg output_log)"/>
+  </include>
+
+
+  <include file="$(find mowito_rosbot)/launch/secondary_launch/start_recovery_executive.launch">
+    <arg name="debug" value="$(arg rcvr_debug)"/>
+    <arg name="respawn" value="$(arg respawn)"/>
+  </include>
+
+  <node name="mission_executive" type="mission_executive_node" pkg="executive" output="$(arg output_log)">
+    <rosparam command="load" file="$(arg mission_executive_config)"/>
+  </node>
+
+</launch>
