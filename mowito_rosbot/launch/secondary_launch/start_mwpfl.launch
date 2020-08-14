@@ -1,0 +1,50 @@
+<launch>  
+    
+    <arg name="sim" default="false" /> 
+    <arg name="scan_topic" default="/scan"/>
+    <arg name="laser_frame" default="laser" />
+    <arg name="map_address" default="$(find mw_mapping)/maps/mowito_map.yaml" />
+    <arg name="robot_init_x" default="0"/>
+    <arg name="robot_init_y" default="0"/>
+    <arg name="robot_init_phi" default="0"/>
+     
+    <param name="use_sim_time" value="$(arg sim)"/>
+     <!-- static transform between laser and the robot-->
+    <node pkg="tf" type="static_transform_publisher" name="base_2_laser" args="0 0 0 3.14 0 0 base_link $(arg laser_frame) 100" unless="$(arg sim)"/>
+
+
+     <!-- MAP SERVER -->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_address)" output="screen">
+    </node>
+
+    <!-- AMCL -->
+    <node pkg="mwpfl" type="mwpfl" name="mwpfl" output="screen">
+        <remap from="scan" to="$(arg scan_topic)" />
+        <remap from="initialpose" to="initialpose" />
+
+        <param name="initial_pose_x" value="$(arg robot_init_x)"/>
+        <param name="initial_pose_y" value="$(arg robot_init_y)"/>
+        <param name="initial_pose_a" value="$(arg robot_init_phi)"/>
+
+        <param name="odom_frame_id" value="odom"/>
+        <param name="base_frame_id" value="base_link"/>
+        <param name="global_frame_id" value="map"/>
+
+        <!-- min thresholds for updating the estimates-->
+        <!-- negative value will make it update at laser scan frequency -->
+        <!-- max distance to skip laser scans-->
+        <!-- <param name="update_min_distance" value="0.1"/> -->
+        <param name="update_min_distance" value="0.01"/>
+        <!-- max angle diff to skip laser scans-->
+        <!-- <param name="update_min_angle" value="0.2"/> -->
+        <param name="update_min_angle" value="0.02"/>
+        <!-- odometry model-->
+        <!--values of noise are smaller for diff-corrected than for diff model (which is 0.2) -->
+        <param name="odom_noise_rot_rot" value="0.05"/>
+        <param name="odom_noise_rot_trans" value="0.05"/>
+        <param name="odom_noise_trans_trans" value="0.05"/>
+        <param name="odom_noise_trans_rot" value="0.05"/>
+      
+    </node>
+
+</launch>

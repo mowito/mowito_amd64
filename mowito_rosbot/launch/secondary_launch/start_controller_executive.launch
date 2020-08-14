@@ -1,0 +1,19 @@
+<launch>
+  <arg name="debug" default="false"/>
+  <arg name="respawn" default="false"/>
+  <arg name="output_log" default="screen"/>
+
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find controller_executive)/custom_config.conf" if="$(arg debug)"/>
+  <node name="controller_executive" type="controller_action_node" pkg="controller_executive" output="$(arg output_log)" respawn="$(arg respawn)">
+    <param name="tolerance_check" type="bool" value="false"/>
+    <param name="force_stop_at_goal" type="bool" value="false"/>
+    <param name="dist_tolerance" type="double" value="0.1"/>
+    <param name="angle_tolerance" type="double" value="0.17453292"/>
+    <param name="tf_timeout" type="double" value="1.0"/>
+    <param name="robot_frame" type="string" value="base_link"/>
+    <param name="map_frame" type="string" value="map"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/controller_config/controller_action_server_params.yaml"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/controller_config/trajectory_planner_ros.yaml"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/controller_config/pure_pursuit_controller.yaml"/>
+  </node>
+</launch>
