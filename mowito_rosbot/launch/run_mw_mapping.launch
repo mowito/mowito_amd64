@@ -22,7 +22,7 @@
     <group if="$(arg cartographer)">
     <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(env HOME)/mowito/config/carto_config
+          -configuration_directory $(find mowito_rosbot)/config/carto_config
           -configuration_basename rosbot.lua"
       output="screen">
     </node>  

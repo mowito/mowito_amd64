@@ -9,7 +9,7 @@
     <arg name="debug" default="false" />
     <arg name="respawn" value="true"/>
 
-    <arg name="explore_params_config" default="$(env HOME)/mowito/config/explore_params/explore_params.yaml"/>
+    <arg name="explore_params_config" default="$(find mowito_rosbot)/config/explore_params/explore_params.yaml"/>
 
     <node pkg="tf" type="static_transform_publisher" name="ROSbot2_laser" args="0 0 0 3.14 0 0 base_link laser 10" />
 
@@ -17,7 +17,7 @@
     <include file="$(find rosbot_ekf)/launch/all.launch"/>
     <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
 
-    <include file="$(env HOME)/mowito/launch/start_mw_mapping.launch">
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_mw_mapping.launch">
         <arg name="scan_topic" value="/scan" /> 
         <arg name="laser_frame" value="laser" />
         <arg name="odom_frame" value="odom" />
@@ -27,15 +27,15 @@
     </include>
 
     <!-- nav server -->
-    <include file="$(env HOME)/mowito/launch/start_nav_server.launch">
-        <arg name="mission_executive_config" value="$(env HOME)/mowito/config/mission_executive_config/exploration.yaml"/>
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_nav_server.launch">
+        <arg name="mission_executive_config" value="$(find mowito_rosbot)/config/mission_executive_config/exploration.yaml"/>
         <arg name="respawn" value="$(arg respawn)"/>
         <arg name="gp_debug" value="$(arg debug)"/>
         <arg name="ctrl_debug" value="$(arg debug)"/>
         <arg name="output_log" value="log"/>  
     </include>
 
-    <include file="$(env HOME)/mowito/launch/start_explore.launch">
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_explore.launch">
         <arg name="debug" value="$(arg debug)"/>
     </include> 
 
