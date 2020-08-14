@@ -12,8 +12,8 @@
     <param name="tf_timeout" type="double" value="1.0"/>
     <param name="robot_frame" type="string" value="base_link"/>
     <param name="map_frame" type="string" value="map"/>
-    <rosparam command="load" file="$(env HOME)/mowito/config/controller_config/controller_action_server_params.yaml"/>
-    <rosparam command="load" file="$(env HOME)/mowito/config/controller_config/trajectory_planner_ros.yaml"/>
-    <rosparam command="load" file="$(env HOME)/mowito/config/controller_config/pure_pursuit_controller.yaml"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/controller_config/controller_action_server_params.yaml"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/controller_config/trajectory_planner_ros.yaml"/>
+    <rosparam command="load" file="$(find mowito_rosbot)/config/controller_config/pure_pursuit_controller.yaml"/>
   </node>
 </launch>

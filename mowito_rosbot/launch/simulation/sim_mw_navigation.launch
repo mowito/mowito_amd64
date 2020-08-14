@@ -1,19 +1,12 @@
 <launch>
-
-    <arg name="scan_topic" default="/scan" /> 
-    <arg name="laser_frame" default="laser" />
-    <arg name="odom_frame" default="odom" />
-    <arg name="base_frame" default="base_link" />
-    <arg name="map_frame" default="map" />
-    <arg name="cartographer" default="false" />
+    <arg name="map_path" default="$(find mw_mapping)/maps/mowito_map.yaml"/>
     <arg name="respawn" default="true"/>
     <arg name="debug" default="false"/>
-
     <arg name="world_name" default="mowito"/>
     <arg name="gui" default="true"/>
+    <arg name="cartographer" default="false" />
+    <arg name="carto_map" default="$(find mowito_rosbot)/samples/maps/carto_map.pbstream" />
 
-
-    <node pkg="tf" type="static_transform_publisher" name="ROSbot2_laser" args="0 0 0 3.14 0 0 base_link laser 10" />
 
     <!-- SIMULATION -->
     <!-- rosbot and the rviz-->
@@ -26,24 +19,25 @@
         <arg name="world" value="$(find rosbot_gazebo)/worlds/$(arg world_name).world"/>
         <arg name="gui" value="$(arg gui)"/>
     </include>
-   
+
     <!-- NAVIGATION -->
-    <!-- mapping node-->
+    <!-- localization node-->
     <group unless="$(arg cartographer)">
-    <include file="$(env HOME)/mowito/launch/start_mw_mapping.launch">
-        <arg name="scan_topic" value="/scan" /> 
-        <arg name="laser_frame" value="laser" />
-        <arg name="odom_frame" value="odom" />
-        <arg name="base_frame" value="base_link" />
-        <arg name="map_frame" value="map" />
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_mwpfl.launch">
+        <arg name="map_address" value="$(arg map_path)"/>
+        <arg name="robot_init_x" value="0"/>
+        <arg name="robot_init_y" value="0"/>
+        <arg name="robot_init_phi" value="0"/>
+        <arg name="sim" value="true"/>
     </include>
     </group>
 
     <group if="$(arg cartographer)">
     <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(env HOME)/mowito/config/carto_config
-          -configuration_basename rosbot.lua"
+          -configuration_directory $(find mowito_rosbot)/config/carto_config
+          -configuration_basename rosbot_localization.lua
+	  -load_state_filename $(arg carto_map)"
       output="screen">
     </node>  
     <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
@@ -55,14 +49,14 @@
     <node pkg="utils" type="msg_to_tf" name="msg_to_tf">
         <param name="odometry_topic" value="/odom"/>
     </node>
-    
+
     <!-- nav server-->
-    <include file="$(env HOME)/mowito/launch/start_nav_server.launch">
-        <arg name="mission_executive_config" value="$(env HOME)/mowito/config/mission_executive_config/standard_nav.yaml"/>
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_nav_server.launch">
+        <arg name="mission_executive_config" value="$(find mowito_rosbot)/config/mission_executive_config/mission_executive_params.yaml"/>
         <arg name="respawn" value="$(arg respawn)"/>
         <arg name="gp_debug" value="$(arg debug)"/>
-        <arg name="ctrl_debug" value="$(arg debug)"/>
-        <arg name="rcvr_debug" value="$(arg debug)"/>  
+        <arg name="ctrl_debug" value="$(arg debug)"/>  
+        <arg name="rcvr_debug" value="$(arg debug)"/>        
     </include>
-
+    
 </launch>

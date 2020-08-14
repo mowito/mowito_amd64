@@ -6,11 +6,26 @@
     <arg name="base_frame" default="base_link" />
     <arg name="map_frame" default="map" />
     <arg name="cartographer" default="false" />
+    <arg name="world_name" default="mowito"/>
+    <arg name="gui" default="true"/>
 
+    
     <node pkg="tf" type="static_transform_publisher" name="ROSbot2_laser" args="0 0 0 3.14 0 0 base_link laser 10" />
 
+    <!-- SIMULATION -->
+    <!-- rosbot and the rviz-->
+    <include file="$(find rosbot_description)/launch/rosbot_rviz.launch">
+        <arg name="rviz_file" value="rosbot.rviz"/>
+    </include>
+    <!-- the world -->
+    <include file="$(find rosbot_gazebo)/launch/rosbot_world.launch">
+        <arg name="world" value="$(find rosbot_gazebo)/worlds/$(arg world_name).world"/>
+        <arg name="gui" value="$(arg gui)"/>
+    </include>
+
+    <!-- NAVIGATION -->
     <group unless="$(arg cartographer)">
-    <include file="$(find mw_run)/launch/start_mw_mapping.launch">
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_mw_mapping.launch">
         <arg name="scan_topic" value="/scan" /> 
         <arg name="laser_frame" value="laser" />
         <arg name="odom_frame" value="odom" />
@@ -18,11 +33,11 @@
         <arg name="map_frame" value="map" />
     </include>
     </group>
-
+    
     <group if="$(arg cartographer)">
     <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(env HOME)/mowito/config/carto_config
+          -configuration_directory $(find mowito_rosbot)/config/carto_config
           -configuration_basename rosbot.lua"
       output="screen">
     </node>  

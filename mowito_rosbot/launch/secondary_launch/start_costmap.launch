@@ -1,0 +1,8 @@
+<launch>
+<node name="costmap" pkg="costmap_2d" type="costmap_2d_node" output="screen">
+	<rosparam file="$(find mowito_rosbot)/config/costmap_config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+	<rosparam file="$(find mowito_rosbot)/config/costmap_config/local_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find mowito_rosbot)/config/costmap_config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+	<rosparam file="$(find mowito_rosbot)/config/costmap_config/global_costmap_params.yaml" command="load"/>
+</node>
+</launch>
