@@ -1,0 +1,68 @@
+<launch>
+
+    <arg name="scan_topic" default="/scan" /> 
+    <arg name="laser_frame" default="laser" />
+    <arg name="odom_frame" default="odom" />
+    <arg name="base_frame" default="base_link" />
+    <arg name="map_frame" default="map" />
+    <arg name="cartographer" default="false" />
+    <arg name="respawn" default="true"/>
+    <arg name="debug" default="false"/>
+
+    <arg name="world_name" default="mowito"/>
+    <arg name="gui" default="true"/>
+
+
+    <node pkg="tf" type="static_transform_publisher" name="ROSbot2_laser" args="0 0 0 3.14 0 0 base_link laser 10" />
+
+    <!-- SIMULATION -->
+    <!-- rosbot and the rviz-->
+    <include file="$(find rosbot_description)/launch/rosbot_rviz.launch">
+        <arg name="rviz_file" value="rosbot.rviz"/>
+    </include>
+
+    <!-- the world -->
+    <include file="$(find rosbot_gazebo)/launch/rosbot_world.launch">
+        <arg name="world" value="$(find rosbot_gazebo)/worlds/$(arg world_name).world"/>
+        <arg name="gui" value="$(arg gui)"/>
+    </include>
+   
+    <!-- NAVIGATION -->
+    <!-- mapping node-->
+    <group unless="$(arg cartographer)">
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_mw_mapping.launch">
+        <arg name="scan_topic" value="/scan" /> 
+        <arg name="laser_frame" value="laser" />
+        <arg name="odom_frame" value="odom" />
+        <arg name="base_frame" value="base_link" />
+        <arg name="map_frame" value="map" />
+    </include>
+    </group>
+    
+    <group if="$(arg cartographer)">
+    <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find mowito_rosbot)/config/carto_config
+          -configuration_basename rosbot.lua"
+      output="screen">
+    </node>  
+    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+    </group>
+
+
+    <!-- -for converting the odom msg to tf -->
+    <node pkg="utils" type="msg_to_tf" name="msg_to_tf">
+        <param name="odometry_topic" value="/odom"/>
+    </node>
+    
+    <!-- nav server-->
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_nav_server.launch">
+        <arg name="mission_executive_config" value="$(find mowito_rosbot)/config/mission_executive_config/standard_nav.yaml"/>
+        <arg name="respawn" value="$(arg respawn)"/>
+        <arg name="gp_debug" value="$(arg debug)"/>
+        <arg name="ctrl_debug" value="$(arg debug)"/>
+        <arg name="rcvr_debug" value="$(arg debug)"/>  
+    </include>
+
+</launch>

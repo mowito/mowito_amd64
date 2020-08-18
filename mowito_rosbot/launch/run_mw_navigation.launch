@@ -1,0 +1,40 @@
+<launch>
+    <arg name="map_path" default="$(find mw_mapping)/maps/mowito_map.yaml"/>
+    <arg name="respawn" default="true"/>
+    <arg name="debug" default="false"/>
+    <arg name="cartographer" default="false" />
+    <arg name="carto_map" default="$(find mowito_rosbot)/samples/maps/carto_map.pbstream" />
+
+
+    <!-- localization node-->
+    <group unless="$(arg cartographer)">
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_mwpfl.launch">
+        <arg name="map_address" value="$(arg map_path)"/>
+        <arg name="robot_init_x" value="0"/>
+        <arg name="robot_init_y" value="0"/>
+        <arg name="robot_init_phi" value="0"/>
+    </include>
+    </group>
+
+    <group if="$(arg cartographer)">
+    <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find mowito_rosbot)/config/carto_config
+          -configuration_basename rosbot_localization.lua
+	  -load_state_filename $(arg carto_map)"
+      output="screen">
+    </node>  
+    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+    </group>
+
+
+    <!-- nav server-->
+    <include file="$(find mowito_rosbot)/launch/secondary_launch/start_nav_server.launch">
+        <arg name="mission_executive_config" value="$(find mowito_rosbot)/config/mission_executive_config/mission_executive_params.yaml"/>
+        <arg name="respawn" value="$(arg respawn)"/>
+        <arg name="gp_debug" value="$(arg debug)"/>
+        <arg name="ctrl_debug" value="$(arg debug)"/>        
+    </include>
+    
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+	<arg name="rviz_file" default="default.rviz"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find mowito_rosbot)/launch/$(arg rviz_file)"/>
+</launch>
