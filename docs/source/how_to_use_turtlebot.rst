@@ -24,7 +24,7 @@ A. Set up turtle bot sim
 ^^^^^^^^^^^^^^^^^^^^^^^^^
    1. Clone the turtle bot sim in mowito_ws (the one you setup during installation)
       
-      ``cd ~/mowito_ws/src/ && git clone https://github.com/akshay-antony/turtle_mowito.git  ``
+      ``cd ~/mowito_ws/src/ && git clone https://github.com/akshay-antony/turtle_mowito.git``
 
    2. Install the dependencies 
    
@@ -36,12 +36,12 @@ A. Set up turtle bot sim
 
 
 B. Running Navigation with no Map (SLAM) / Navigation to create Map
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             0. Start the simulator, on one terminal:
 
                   ``export TURTLEBOT3_MODEL=waffle_pi`` 
 
-                  ``roslaunch turtlebot3_gazebo turtlebot3_world.launch                   ``
+                  ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
 
             1. One a new terminal 
 
@@ -71,8 +71,7 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
                   
                   and use it move the robot around
 
-            2. While moving the robot is simultaneously creating the map too. In order to save the map, 
-               on a new terminal exeute the following:
+            2. While moving the robot is simultaneously creating the map too. In order to save the map, on a new terminal exeute the following:
          
                         ``cd && rosrun map_server map_saver -f mymap``
             
@@ -84,7 +83,7 @@ C. Running Navigation  with a pre-exitsting Map
 
                   ``export TURTLEBOT3_MODEL=waffle_pi`` 
 
-                  ``roslaunch turtlebot3_gazebo turtlebot3_world.launch                   ``
+                  ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
 
             
             1. Now, on the other terminal for running the entire system with mowito’s controller run
@@ -93,7 +92,7 @@ C. Running Navigation  with a pre-exitsting Map
                   
                   ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch``
 
-            If you want to use the map created in the previous section use this
+               If you want to use the map created in the previous section use this
 
                   ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch map_name:=mymap``
 
