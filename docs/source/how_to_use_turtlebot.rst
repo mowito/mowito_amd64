@@ -1,4 +1,4 @@
-How To Use on ROSbot
+How To Use on Turtle Bot
 =====================================
 
 On all the terminals you open, source the ROS:
@@ -27,6 +27,7 @@ A. Set up turtle bot sim
       ``cd ~/mowito_ws/src/ && git clone ``
 
    2. Build the workspace 
+   
       ``cd ~/mowito_ws/ && catkin_make``
 
 

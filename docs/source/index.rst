@@ -19,6 +19,8 @@ Mowito's Navigation Stack documentation
    Installation
 
    how_to_use_rosbot
+
+   how_to_use_turtlebot
    
    Tips
 
