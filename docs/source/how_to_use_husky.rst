@@ -1,4 +1,4 @@
-How To Use on TurtleBot
+How To Use on Husky
 =====================================
 
 On all the terminals you open, source the ROS:
@@ -20,11 +20,11 @@ For ROS Kinetic
 For Simulation
 ----------------
 
-A. Set up turtle bot sim
+A. Set up Husky sim
 ^^^^^^^^^^^^^^^^^^^^^^^^^
    1. Clone the turtle bot sim in mowito_ws (the one you setup during installation)
       
-      ``cd ~/mowito_ws/src/ && git clone https://github.com/akshay-antony/turtle_mowito.git``
+      ``cd ~/mowito_ws/src/ && git clone https://github.com/akshay-antony/mowito_husky.git``
 
    2. Install the dependencies 
    
@@ -39,31 +39,27 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             0. Start the simulator, on one terminal:
 
-                  ``export TURTLEBOT3_MODEL=waffle_pi`` 
-
-                  ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+                  ``roslaunch husky_gazebo husky_playpen.launch``
 
             1. One a new terminal 
-
-                  ``export TURTLEBOT3_MODEL=waffle_pi`` 
 
                then follow on of the three ways to run the robot without map
 
                   1.1. **Navigation, by giving goals through the rviz**:
                   
-                        ``roslaunch mowito_turtlebot turtle_mowito_nav_no_map.launch``
+                        ``roslaunch mowito_husky sim_mw_navigation_with_no_map.launch``
                   
                   on rviz, give goals on the map, and the robot will move autnomously while creating the map
 
-                  1.2. **Autonomous goal selection ,throuh Exploration**:
+                  1.2. **Autonomous goal selection ,through Exploration**:
                   
-                        ``roslaunch mowito_turtlebot turtle_mowito_exploration.launch``
+                        ``roslaunch mowito_husky sim_mw_mapping_with_explore.launch``
       
                   on rviz you can see the robot automatically moving and exploring the area
 
                   1.3. **Manual navigation**:
                   
-                        ``roslaunch mowito_turtlebot turtle_mowito_mapping.launch``
+                        ``roslaunch mowito_husky sim_mw_mapping.launch``
                   
                   in another terminal, start the remote control:
                   
@@ -81,20 +77,16 @@ C. Running Navigation  with a pre-exitsting Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             0. Start the simulator, on one terminal:
 
-                  ``export TURTLEBOT3_MODEL=waffle_pi`` 
-
-                  ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+                  ``roslaunch husky_gazebo husky_playpen.launch``
 
             
             1. Now, on the other terminal for running the entire system with mowito’s controller run
-
-                  ``export TURTLEBOT3_MODEL=waffle_pi``
                   
-                  ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch``
+                  ``roslaunch mowito_husky sim_mw_navigation.launch``
 
                If you want to use the map created in the previous section use this
 
-                  ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch map_name:=mymap``
+                  ``roslaunch mowito_husky sim_mw_navigation.launch map_name:=mymap``
 
 
             2. In the rviz, click on the second top panel, click on the nav goal option, and click on the displayed map to give goal to the robot

@@ -21,6 +21,8 @@ Mowito's Navigation Stack documentation
    how_to_use_rosbot
 
    how_to_use_turtlebot
+
+   how_to_use_husky
    
    Tips
 
