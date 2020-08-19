@@ -22,7 +22,7 @@ For Simulation
 
 A. Set up Husky sim
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-   1. Clone the turtle bot sim in mowito_ws (the one you setup during installation)
+   1. Clone the Husky sim in mowito_ws (the one you setup during installation)
       
       ``cd ~/mowito_ws/src/ && git clone https://github.com/akshay-antony/mowito_husky.git``
 
