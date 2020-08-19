@@ -18,7 +18,7 @@ Mowito's Navigation Stack documentation
 
    Installation
 
-   how_to_use
+   how_to_use_rosbot
    
    Tips
 
