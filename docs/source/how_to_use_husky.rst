@@ -37,13 +37,12 @@ A. Set up Husky sim
 
 B. Running Navigation with no Map (SLAM) / Navigation to create Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            0. Start the simulator, on one terminal:
+            0. Source the workspace
 
-                  ``roslaunch husky_gazebo husky_playpen.launch``
+                  ``source ~/mowito_ws/devel/setup.bash``\
 
-            1. One a new terminal 
+            1. Now use one of the three ways to run the robot without map
 
-               then follow on of the three ways to run the robot without map
 
                   1.1. **Navigation, by giving goals through the rviz**:
                   
@@ -63,7 +62,7 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
                   
                   in another terminal, start the remote control:
                   
-                        ``rosrun teleop_twist_keyboard teleop_twist_keyboard``
+                        ``rosrun teleop_twist_keyboard teleop_twist_keyboard.py``
                   
                   and use it move the robot around
 
@@ -75,12 +74,12 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
 
 C. Running Navigation  with a pre-exitsting Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            0. Start the simulator, on one terminal:
+            0. Source the workspace
 
-                  ``roslaunch husky_gazebo husky_playpen.launch``
+                  ``source ~/mowito_ws/devel/setup.bash``
 
             
-            1. Now, on the other terminal for running the entire system with mowito’s controller run
+            1. Now, lets run navigation with map:
                   
                   ``roslaunch mowito_husky sim_mw_navigation.launch``
 

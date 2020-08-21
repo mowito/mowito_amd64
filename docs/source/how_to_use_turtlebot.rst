@@ -37,41 +37,44 @@ A. Set up turtle bot sim
 
 B. Running Navigation with no Map (SLAM) / Navigation to create Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            0. Start the simulator, on one terminal:
+            1. On one terminal, start the simulator, :
+                  ``source ~/mowito_ws/devel/setup.bash``
 
                   ``export TURTLEBOT3_MODEL=waffle_pi`` 
 
                   ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
 
-            1. One a new terminal 
+            2. One a new terminal 
+                  
+                  ``source ~/mowito_ws/devel/setup.bash``\
 
                   ``export TURTLEBOT3_MODEL=waffle_pi`` 
 
                then follow on of the three ways to run the robot without map
 
-                  1.1. **Navigation, by giving goals through the rviz**:
+                  2.1. **Navigation, by giving goals through the rviz**:
                   
                         ``roslaunch mowito_turtlebot turtle_mowito_nav_no_map.launch``
                   
                   on rviz, give goals on the map, and the robot will move autnomously while creating the map
 
-                  1.2. **Autonomous goal selection ,throuh Exploration**:
+                  2.2. **Autonomous goal selection ,throuh Exploration**:
                   
                         ``roslaunch mowito_turtlebot turtle_mowito_exploration.launch``
       
                   on rviz you can see the robot automatically moving and exploring the area
 
-                  1.3. **Manual navigation**:
+                  2.3. **Manual navigation**:
                   
                         ``roslaunch mowito_turtlebot turtle_mowito_mapping.launch``
                   
                   in another terminal, start the remote control:
                   
-                        ``rosrun teleop_twist_keyboard teleop_twist_keyboard``
+                        ``rosrun teleop_twist_keyboard teleop_twist_keyboard.py``
                   
                   and use it move the robot around
 
-            2. While moving the robot is simultaneously creating the map too. In order to save the map, on a new terminal exeute the following:
+            3. While moving the robot is simultaneously creating the map too. In order to save the map, on a new terminal exeute the following:
          
                         ``cd && rosrun map_server map_saver -f mymap``
             
@@ -81,12 +84,16 @@ C. Running Navigation  with a pre-exitsting Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             0. Start the simulator, on one terminal:
 
+                  ``source ~/mowito_ws/devel/setup.bash``
+
                   ``export TURTLEBOT3_MODEL=waffle_pi`` 
 
                   ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
 
             
             1. Now, on the other terminal for running the entire system with mowito’s controller run
+
+                  ``source ~/mowito_ws/devel/setup.bash``
 
                   ``export TURTLEBOT3_MODEL=waffle_pi``
                   
