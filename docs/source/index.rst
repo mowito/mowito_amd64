@@ -23,6 +23,8 @@ Mowito's Navigation Stack documentation
    how_to_use_turtlebot
 
    how_to_use_husky
+
+   interfaces
    
    Tips
 
