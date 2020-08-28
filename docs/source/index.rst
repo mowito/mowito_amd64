@@ -25,8 +25,12 @@ Mowito's Navigation Stack documentation
    how_to_use_husky
 
    interfaces
+
+   trajectory_planner_tuning
    
    Tips
+
+   
 
 
 
