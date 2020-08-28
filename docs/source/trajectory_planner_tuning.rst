@@ -126,6 +126,31 @@ We previously saw that tuning the trajectory planner's scoring parameters is imp
     |                        |                     | obstacles. Try increasing if the robot is straying too close to obstacles.                    |
     +------------------------+---------------------+-----------------------------------------------------------------------------------------------+
    
+Files to alter for Tuning
+^^^^^^^^^^^^^^^^^^^^^^^^^
+The following files need to be altered and saved for custom parameters to take effect.
+
+1. turtle_mowito
+
++------------------------+---------------------------------------------------------------------------------------------------+
+| Trajecory Planner      | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/controller_config/trajectory_planner_ros.yaml |
++------------------------+---------------------------------------------------------------------------------------------------+
+| Local Costmap          | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/costmap_config/local_costmap_params.yaml      |
++------------------------+---------------------------------------------------------------------------------------------------+
+| Global Costmap         | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/costmap_config/global_costmap_params.yaml     |
++------------------------+---------------------------------------------------------------------------------------------------+
+
+2. rosbot
+
++------------------------+---------------------------------------------------------------------------------------------------+
+| Trajecory Planner      | mowito_ws/src/gazebo_sim/src/rosbot_description/config/controller/trajectory_planner_ros.yaml     |
++------------------------+---------------------------------------------------------------------------------------------------+
+| Local Costmap          | mowito_ws/src/costmap2d/config/local_costmap_params.yaml                                          |
++------------------------+---------------------------------------------------------------------------------------------------+
+| Global Costmap         | mowito_ws/src/costmap2d/config/global_costmap_params.yaml                                         |
++------------------------+---------------------------------------------------------------------------------------------------+
+
+  
 
 Common Problems and Tuning
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -134,7 +159,18 @@ This section describes certain common problems and describes in more detail how 
 
     **Local path is curving a lot and causes the robot to be slow and move in a sine wave-like path. This happens because of the path cost solution (pdist_bias, gdist_bias and occdist_bias params)**
     Increasing the pdist bias will cause the robot to move closer to the global path, thereby reducing the 'sinusoidal' behaviour of the robot.
-    <insert images>
+    
+   
+
+    .. image:: Images/trajectory_planner/pdist_15.png
+      :alt: pdist_15.png
+    pdist_bias is set to 1.5
+
+    
+
+    .. image:: Images/trajectory_planner/pdist_40.png
+      :alt: pdist_40.png
+    pdist_bias is set to 4.0
 
     **The robot is not following the global path that goes between obstacles when the opening is small or the robot comes close to the obstacle and gets stuck.The robot comes close to obstacles because either the global path or the local path is not far enough from obstacles. It is suggested to tweak the inflation_radius and cost_scaling_factors to avoid this.**
 
@@ -150,13 +186,21 @@ This section describes certain common problems and describes in more detail how 
 
     It is recommended to set inflation_radius and cost_scaling_factor such that slopes are gentler and move a decent distance away from the obstacle. This allows the global path planner and trajectory planner to find the 'midway' path between obstacles and not stray too close to one obstacle.
     For instance, 
+
+    .. image:: Images/trajectory_planner/costmap_rad_02.png
+      :alt: costmap_rad_02.png
     *inflation_radius: 0.2*
     *cost_scaling_factor: 3.0*
 
+    .. image:: Images/trajectory_planner/costmap_rad_15.png
+      :alt: costmap_rad_02.png
     *inflation_radius: 1.5*
     *cost_scaling_factor: 3.0*
+
     Notice how in the first case, the global path goes close to the obstacles, while in the second case, a path that is roughly equidistant from all obstacles is chosen.
 
+    .. image:: Images/trajectory_planner/costmap_csf_150.png
+      :alt: costmap_rad_02.png
     *inflation_radius: 1.5*
     *cost_scaling_factor: 15.0*
 
@@ -165,35 +209,34 @@ This section describes certain common problems and describes in more detail how 
     Ths same parameters are also tweaked for the local costmap used by the trajectory planner (Yes, the costmap used by the global planner is global costmap, while that used by trajectory planner is local costmap).
 
 
+    For instance, take global costmap paramters as:
+
+        - inflation_radius: 0.2
+        - cost_scaling_factor: 3.0
+
+    .. image:: Images/trajectory_planner/local_costmap_rad_01.png
+      :alt: costmap_rad_02.png
+    *local costamp: cost_scaling_factor: 3.0 inflation_radius: 0.1*
 
 
-    For instance,
-
-    Global Costmap: 
-    inflation_radius: 0.2
-    cost_scaling_factor: 3.0
-    local costamp:
-    cost_scaling_factor: 3.0
-    inflation_radius: 0.1
-
-
-    same global costmap
-    local costmap:
-    cost_scaling_factor: 3.0
-    inflation_radius: 0.8
+    .. image:: Images/trajectory_planner/local_costmap_rad_08.png
+      :alt: costmap_rad_02.png
+    *local costmap: cost_scaling_factor: 3.0 inflation_radius: 0.8*
 
 
     Notice how the robot is considering a larger area and that the path it took is relatively farther from obstacles than it is in the first case. The change can be increased by tuning the cost_scaling_factor and inflation_radius. If the inflation radius is too large, the robot may try to avoid narrow pathways.
 
 
-    **The calculation needs too much time to stay at moving frequency: The frequency of this warning can be reduced by tweaking parameters to use less computational resources.**
+    **The calculation needs too much time to stay at moving frequency** 
 
-        Try reducing local costmap width and height. This is an effective method to reduce computation time.
+    The number of times this warning occurs can be reduced by tweaking parameters to use less computational resources. Try reducing local costmap width and height. This is an effective method to reduce computation time.
 
-        Other methods to reduce computation time:
-            - Increase sim_granularity
-            - reduce vx_samples and/or vtheta_samples
-            - reduce sim_time
+    Other methods to reduce computation time:
+
+        - Increase sim_granularity
+        - reduce vx_samples and/or vtheta_samples
+        - reduce sim_time
 
     **The robot is able to reach the first goal but fails for subsequent ones.**
+    
     The cause is unknown. Reducing heading_lookahead for trajectory planner may fix the issue. Try the value 0.325
