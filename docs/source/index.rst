@@ -27,10 +27,10 @@ Mowito's Navigation Stack documentation
    interfaces
 
    trajectory_planner_tuning
+
+   pure_pursuit_tuning
+
+   teb_local_planner
    
    Tips
-
-   
-
-
 
