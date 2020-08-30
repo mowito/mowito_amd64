@@ -71,6 +71,9 @@ Common Problems and Tuning
 --------------------------
 
 This section describes certain common problems and describes in more detail how changing parameters will affect the robot behaviour.
+::
+
+      TIP use the respective yaml files of the robot to tune the parameters
 
 Initial Check
 ^^^^^^^^^^^^^
@@ -95,7 +98,7 @@ Pure pursuit controller while taking a turn has to take a minimum radius value f
 
 B. The robot oscillates a lot while approaching a turn
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Make sure that the lookahead goal is in front of the robot and then reduce the maximum angular velocity for a smoother motion.
+Make sure that the lookahead goal is in front of the robot and not underneath it. Also, reduce the maximum angular velocity for a smoother motion.
 
 
 C. The robot is unable/takes more time to follow its path after taking a turn  

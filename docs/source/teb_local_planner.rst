@@ -276,6 +276,12 @@ Common Problems and Tuning
 
 This section describes certain common problems and describes in more detail how changing parameters will affect the robot behaviour.
 
+   ``rosrun rqt_reconfigure rqt_reconfigure``
+
+::
+
+      TIP run the above line in a terminal to tune the parameters using a General User Interface(GUI)
+
 A. Why does my robot navigate too close to the walls?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
