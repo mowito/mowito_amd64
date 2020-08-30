@@ -71,9 +71,17 @@ Common Problems and Tuning
 --------------------------
 
 This section describes certain common problems and describes in more detail how changing parameters will affect the robot behaviour.
-::
 
-      TIP use the respective yaml files of the robot to tune the parameters
+Tip
+^^^
+
+You can use rqt_reconfigure tool for configuring the parameters during the run time. To use it, use the following command on a new terminal :
+    
+    ``rosrun rqt_reconfigure rqt_reconfigure``
+
+.. image:: Images/pure_pursuit/PP_3.png
+  :alt: PP_3.png
+  :align: center
 
 Initial Check
 ^^^^^^^^^^^^^
