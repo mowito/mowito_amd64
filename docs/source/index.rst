@@ -31,6 +31,8 @@ Mowito's Navigation Stack documentation
    pure_pursuit_tuning
 
    teb_local_planner
+
+   behavior_tree
    
    Tips
 
