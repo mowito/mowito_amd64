@@ -91,6 +91,11 @@ C. Running Navigation  with a pre-exitsting Map
                   ``roslaunch mowito_husky sim_mw_navigation.launch map_name:=mymap``
 
 
+               For using `cartographer` for mapping/ SLAM instead of default mw_mapping, use the following commad:
+
+                  ``roslaunch mowito_husky sim_mw_navigation.launch cartographer:=true``               
+
+
             2. In the rviz, click on the second top panel, click on the nav goal option, and click on the displayed map to give goal to the robot
 
             3. look at the output on the rviz, the path planned and the motion of the robot.
