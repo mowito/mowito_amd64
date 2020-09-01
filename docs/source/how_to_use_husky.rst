@@ -48,7 +48,10 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
                   
                         ``roslaunch mowito_husky sim_mw_navigation_with_no_map.launch``
                   
-                  on rviz, give goals on the map, and the robot will move autnomously while creating the map
+                  on rviz, give goals on the map, and the robot will move autnomously while creating the map. 
+                  For using `cartographer` for mapping/ SLAM instead of default mw_mapping, use the following commad:
+
+                        ``roslaunch mowito_husky sim_mw_navigation_with_no_map.launch cartographer:=true``
 
                   1.2. **Autonomous goal selection ,through Exploration**:
                   
