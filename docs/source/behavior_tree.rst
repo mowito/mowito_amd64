@@ -4,7 +4,6 @@ Behavior Tree for the Mowito Stack
 Overview
 -------------------------------------
 The behavior tree package provides:
-
 	- The ability to use mowito’s features in a modular fashion.
 	- The ability to change the tree nodes dynamically without re-compiling the whole stack.
 	- Easy-to-use XML templates over which the user can add their own features. 
@@ -52,16 +51,28 @@ The behavior tree package for the Mowito Stack provides navigation-specific node
 Example Tree Structures
 ----------------------------------------------------------------------------------
 
-A. Navigate with waypoint and simple recovery actions
+A. Navigate with waypoints and simple recovery actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following tree structure can be used for taking multiple goals from the user via the Rviz-Gui. This tree never returns that the action has finished successfully, but will return FAILURE after all the goals have been reached. However, until the system is shut down, the tree will continue to take new goals (if any) from the user and pursue them. 
+
+	1. To launch the behavior tree for naviagation with waypoints and simple recovery actions, execute:
+ 
+		``roslaunch behavior_tree sim_bt_nav_waypoint_mode.launch``
+
+	2. This behavior tree is contained in the waypoint_navigation_tree.xml file inside the tree folder. The tree folder is alongside the CMakeLists.txt and package.xml files.  
 
 .. image:: Images/behavior_tree/tree_waypoint_mode.png
   :alt: tree_waypoint_mode.png
 
-B. Navigate with a given route points and simple recovery actions
+B. Navigate with given route points and simple recovery actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following tree structure can be used for taking multiple goals from the user via a given route.yaml (type) file. This tree never returns that the action has finished successfully, but will return FAILURE after all the goals have been reached. However, until the system is shut down, the tree will continue to take new goals (if any) from the user and pursue them.
+
+	1. To launch the behavior tree for navigation with route points and simple recovery actions, execute:
+ 
+		``roslaunch behavior_tree sim_bt_nav_set_route_mode.launch``
+
+	2. This behavior tree is contained in the set_route_tree.xml file inside the tree folder. The tree folder is alongside the CMakeLists.txt and package.xml files.     
 
 .. image:: Images/behavior_tree/tree_set_route_mode.png
   :alt: tree_set_route_mode.png
@@ -69,6 +80,12 @@ The following tree structure can be used for taking multiple goals from the user
 C. Navigate with a given plan and simple recovery actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following tree structure can be used for taking multiple plans from the user via a plan.txt (type) file. This tree never returns that the action has finished successfully, but will return FAILURE after all the plans have been reached. However, until the system is shut down, the tree will continue to take new plans (if any) from the user and pursue them.
+
+	1. To launch the behavior tree for navigation with a given plan and simple recovery actions, execute:
+ 
+		``roslaunch behavior_tree sim_bt_nav_set_plan_mode.launch``
+
+	2. This behavior tree is contained in the set_plan_tree.xml file inside the tree folder. The tree folder is alongside the CMakeLists.txt and package.xml files.  
 
 .. image:: Images/behavior_tree/tree_set_plan_mode.png
   :alt: tree_set_plan_mode.png
