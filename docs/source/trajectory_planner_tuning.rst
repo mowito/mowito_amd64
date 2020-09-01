@@ -146,24 +146,24 @@ The following files need to be altered and saved for custom parameters to take e
 1. turtle_mowito
 ^^^^^^^^^^^^^^^^
 
-+------------------------+---------------------------------------------------------------------------------------------------+
-| Trajecory Planner      | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/controller_config/trajectory_planner_ros.yaml |
-+------------------------+---------------------------------------------------------------------------------------------------+
-| Local Costmap          | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/costmap_config/local_costmap_params.yaml      |
-+------------------------+---------------------------------------------------------------------------------------------------+
-| Global Costmap         | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/costmap_config/global_costmap_params.yaml     |
-+------------------------+---------------------------------------------------------------------------------------------------+
++-------------------------+---------------------------------------------------------------------------------------------------+
+| Trajectory Planner      | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/controller_config/trajectory_planner_ros.yaml |
++-------------------------+---------------------------------------------------------------------------------------------------+
+| Local Costmap           | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/costmap_config/local_costmap_params.yaml      |
++-------------------------+---------------------------------------------------------------------------------------------------+
+| Global Costmap          | mowito_ws/src/turtle_mowito/mowito_turtlebot/config/costmap_config/global_costmap_params.yaml     |
++-------------------------+---------------------------------------------------------------------------------------------------+
 
 2. rosbot
 ^^^^^^^^^
 
-+------------------------+---------------------------------------------------------------------------------------------------+
-| Trajecory Planner      | mowito_ws/src/gazebo_sim/src/rosbot_description/config/controller/trajectory_planner_ros.yaml     |
-+------------------------+---------------------------------------------------------------------------------------------------+
-| Local Costmap          | mowito_ws/src/costmap2d/config/local_costmap_params.yaml                                          |
-+------------------------+---------------------------------------------------------------------------------------------------+
-| Global Costmap         | mowito_ws/src/costmap2d/config/global_costmap_params.yaml                                         |
-+------------------------+---------------------------------------------------------------------------------------------------+
++-------------------------+---------------------------------------------------------------------------------------------------+
+| Trajectory Planner      | mowito_ws/src/gazebo_sim/src/rosbot_description/config/controller/trajectory_planner_ros.yaml     |
++-------------------------+---------------------------------------------------------------------------------------------------+
+| Local Costmap           | mowito_ws/src/costmap2d/config/local_costmap_params.yaml                                          |
++-------------------------+---------------------------------------------------------------------------------------------------+
+| Global Costmap          | mowito_ws/src/costmap2d/config/global_costmap_params.yaml                                         |
++-------------------------+---------------------------------------------------------------------------------------------------+
 
   
 
@@ -171,6 +171,27 @@ Common Problems and Tuning
 --------------------------
 
 This section describes certain common problems and describes in more detail how changing parameters will affect the robot behaviour.
+
+Tip
+^^^
+Traditionally, one may edit and save the parameter files and relaunch the navigation to see their affect. It is highly recommended to use rqt_reconfigure, a ros utility that allows changing parameters during execution. Thus, there is no need to relaunch the navigation node(s). To use rqt_reconfigure, open a separate terminal (source the ros) and run
+
+  ``rosrun rqt_reconfigure rqt_reconfigure``
+
+A window like this would appear
+
+.. image:: Images/trajectory_planner/rqt_reconfigure.png
+  :alt: rqt_reconfigure.png
+
+Usage
+^^^^^
+  * Make sure all parameters have the correct values.
+  * Change the values using either the sliders or the boxes next to the sliders
+  * After tuning, make sure to save your new parameters by changing them in the files listed above so that they are loaded each time the navigation is launched.
+  * It is recommended to make a backup of the original parameter files.
+
+
+
 
 A. Local path is curving a lot and causes the robot to be slow and move in a sine wave-like path.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,7 +216,7 @@ The robot comes close to obstacles because either the global path or the local p
 
 Obstacles exert a 'cost' on the map. For this purpose, the map is divided into a grid-based on a resolution. Think of this as pixels on a screen. A higher resolution means more points on the map. For each point, the cost is calculated. Thus, a higher resolution would require more computation power. Keep in mind that the resolution should be lower than that of the laser scanner hardware mounted on the robot.
 
-The collection of all these points with their costs is called a 'costmap'. The cost of each pixel is used to determine how close the robot is to the object relative to how close it should be. This is not an actual estimate, only a numerical one that scales inversely with distance to the object and gives the robot a sense for how close it is to an obstacle. For example, the points on the object will have a cost of 255, and it would decrease the farther away we go from the object. The rate of decrease and the limit of the object's influence can be changed by tweaking the inflation_radius and cost_scaling_factor.
+The collection of all these points with their costs is called a 'costmap'. The cost of each pixel is used to determine how close the robot is to the object relative to how close it should be. This is not an actual estimate, only a numerical one that scales inversely with distance to the object and gives the robot a sense for how close it is to an obstacle. For example, the points close the obstacle will have a cost value close to 255, and cost would decrease the farther away we go from the obstacle. The rate of decrease and the limit of the obstacle's influence can be changed by tweaking the inflation_radius and cost_scaling_factor.
     
   **Inflation radius**
   Inflation radius sets the absolute limit till which an object exerts influence or cost. Starting from the inflation radius and beyond, the costmap will have 0 cost due to the obstacle.
