@@ -36,3 +36,5 @@ Mowito's Navigation Stack documentation
    
    Tips
 
+   additional_tips
+
