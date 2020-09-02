@@ -70,10 +70,17 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
                   and use it move the robot around
 
             2. While moving the robot is simultaneously creating the map too. In order to save the map, on a new terminal exeute the following:
+                  - if you were using mw_mapping
          
                         ``cd && rosrun map_server map_saver -f mymap``
+
+                  the map (pgm and yaml) is saved  in the home directory with the name mymap.pgm and mymap.yaml
+
+                  - if you were using cartographer to build the map
+
+                        ``rosrun mowito_husky save_carto_map.sh map_name``
             
-               the map (pgm and yaml) is saved  in the home directory with the name mymap.pgm and mymap.yaml
+                  the map (pbstream) is saved  in the home directory with the name **map_name.pbstream**. If no map_name is given then it would save as **map.pbstream**
 
 C. Running Navigation  with a pre-exitsting Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
