@@ -24,6 +24,8 @@ Mowito's Navigation Stack documentation
 
    how_to_use_husky
 
+   route_based_navigation
+   
    interfaces
 
    trajectory_planner_tuning
@@ -34,7 +36,5 @@ Mowito's Navigation Stack documentation
 
    behavior_tree
    
-   Tips
 
-   route_based_navigation
 
