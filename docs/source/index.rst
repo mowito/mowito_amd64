@@ -36,5 +36,5 @@ Mowito's Navigation Stack documentation
    
    Tips
 
-   additional_tips
+   route_based_navigation
 

@@ -1,4 +1,4 @@
-Additional features for Navigation  
+Route based Navigation  
 ===========================================
 
 Overview
@@ -26,7 +26,7 @@ A. Changing parameters in the mission_executive_params.yaml file before launch
       ``rosrun executive set_route_client path/to/route/file``     
 
    
-B. Using rosservice after launch
+B. Changing the Planner and Controller during run
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    1. Lets run navigation with map:
       
@@ -43,7 +43,7 @@ B. Using rosservice after launch
       ``rosrun executive set_route_client path/to/route/file``
 
 
-.. image:: Images/additional_tips/set_route.png
+.. image:: Images/route_based_navigation/set_route.png
   :alt: set_route.png
 
 *Example: rosbot following a given route*
