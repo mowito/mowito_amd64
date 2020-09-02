@@ -7,15 +7,17 @@ Overview
 	- This feature provides user the ability to give pre-planned goals.
 	- There are two ways for using this feature. We will be using the example of husky robot simulation to explain this:
 
-::
+.. NOTE::
 
-      NOTE: While using this feature, it is highly recommended that one uses the genroute planner and the pure_pursuit controller for optimal results. 
+      While using this feature, it is highly recommended that one uses the **genroute** planner for optimal results. 
  
-A. Changing parameters in the mission_executive_params.yaml file before launch
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   1. Open the mission_executive_params.yaml file located inside the mowito_husky/husky/mowito_husky/config/mission_executive_config folder of the mowito_husky package.
+There are two ways to go about using Rotues, based on when the user wants to change the planner types.
 
-   2. Change the planner tag to 'genroute' and the controller tag to 'pure_pursuit_controller'.  
+A. Selecting the type of (Global) Planner  before launching the stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   1. Open the mission_executive_params.yaml file located inside the `mowito_husky/husky/mowito_husky/config/mission_executive_config` folder of the mowito_husky package.
+
+   2. Change the planner tag to ``genroute``.
 
    3. Now, lets run navigation with map:
                   
@@ -26,7 +28,7 @@ A. Changing parameters in the mission_executive_params.yaml file before launch
       ``rosrun executive set_route_client path/to/route/file``     
 
    
-B. Changing the Planner and Controller during run
+B. Changing the (Global) Planner during the run (after launching the stack)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    1. Lets run navigation with map:
       
@@ -35,8 +37,6 @@ B. Changing the Planner and Controller during run
    2. Use the change_planner and change_controller services to change the planner and controller respectively. For this, in a new terminal, execute:  
    
       ``rosservice call /mission_executive/change_planner genroute``
-
-      ``rosservice call /mission_executive/change_controller pure_pursuit_controller``
 
    4. Now, in a new terminal, run the set_route_client node with the appropriate file path to the route.yaml (type) file. Sample route files are available in the samples folder of the mowito_husky package:
                   
