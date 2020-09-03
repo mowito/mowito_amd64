@@ -28,7 +28,7 @@ A. Set up Husky sim
 
       .. NOTE::
 
-            To use velodyne and slam toolbox with husky, switch to the branch **velodyne_with_husky**
+            To use velodyne and `slam toolbox <https://github.com/SteveMacenski/slam_toolbox>`_ with husky, switch to the branch **velodyne_with_husky**
 
                   ``cd ~/mowito_ws/src/mowito_husky && git checkout velodyne_with_husky``
 
