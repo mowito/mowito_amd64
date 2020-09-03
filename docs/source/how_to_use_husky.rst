@@ -26,6 +26,12 @@ A. Set up Husky sim
       
       ``cd ~/mowito_ws/src/ && git clone https://github.com/akshay-antony/mowito_husky.git``
 
+      .. NOTE::
+
+            To use velodyne and slam toolbox with husky, switch to the branch **velodyne_with_husky**
+
+                  ``cd ~/mowito_ws/src/mowito_husky && git checkout velodyne_with_husky``
+
    2. Install the dependencies 
    
       ``cd ~/mowito_ws/ && rosdep install --from-paths src --ignore-src -r -y``
@@ -52,6 +58,10 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
                   For using `cartographer` for mapping/ SLAM instead of default mw_mapping, use the following commad:
 
                         ``roslaunch mowito_husky sim_mw_navigation_with_no_map.launch cartographer:=true``
+
+                  For using `slam toolbox` for mapping/ SLAM with velodyne, use the following commad:
+
+                        ``roslaunch mowito_husky sim_mw_navigation_with_no_map_slam_toolbox.launch``
 
                   1.2. **Autonomous goal selection ,through Exploration**:
                   
@@ -82,6 +92,18 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
             
                   the map (pbstream) is saved  in the home directory with the name **map_name.pbstream**. If no map_name is given then it would save as **map.pbstream**
 
+                  - if you were using slam toolbox to build the map, open the slam toolbox plugin in Rviz by clicking the panels and give a name for the map and store it using serialize map option.      
+
+.. image:: Images/slam_toolbox/panels.png
+  :alt: panels.png
+  :align: center
+            
+.. image:: Images/slam_toolbox/toolbox.png
+  :alt: toolbox.png
+  :align: center                  
+                                    
+the map is saved in the .ros folder in the home directory with the name **husky_map.posegraph** and **husky_map.data**. 
+
 C. Running Navigation  with a pre-exitsting Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             0. Source the workspace
@@ -101,6 +123,16 @@ C. Running Navigation  with a pre-exitsting Map
                For using `cartographer` for mapping/ SLAM instead of default mw_mapping, use the following commad:
 
                   ``roslaunch mowito_husky sim_mw_navigation.launch cartographer:=true``               
+               
+               For using `slam toolbox` for mapping/ SLAM with velodyne, use the following commands:
+                  - move the map data to `.ros` folder in your system by running the following two commands:
+         
+                        ``cd ~/mowito_ws/src/mowito_husky/husky/mowito_husky/maps/``
+                        ``cp husky_serialize.data husky_serialize.posegraph ~/.ros/``
+
+                  - run `slam toolbox` for mapping/ SLAM with velodyne:
+
+                        ``roslaunch mowito_husky sim_mw_navigation_slam_toolbox.launch``               
 
 
             2. In the rviz, click on the second top panel, click on the nav goal option, and click on the displayed map to give goal to the robot
