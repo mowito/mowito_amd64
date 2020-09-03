@@ -24,7 +24,7 @@ A. Set up Husky sim
 ^^^^^^^^^^^^^^^^^^^^^^^^^
    1. Clone the Husky sim in mowito_ws (the one you setup during installation)
       
-      ``cd ~/mowito_ws/src/ && git clone https://github.com/akshay-antony/mowito_husky.git``
+      ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_husky.git``
 
       .. NOTE::
 
