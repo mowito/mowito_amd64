@@ -1,3 +1,4 @@
+.. _route_base_navigation:
 Route based Navigation  
 ===========================================
 

@@ -33,11 +33,11 @@ Here is a list of the service calls in the navigation stack.
 
 **1. Set Plan**
 
-      The ``/mission_executive/set_plan`` service sets the type of planner the robot will use.
+      The ``/mission_executive/set_plan`` service allows the user to set a custom plan for the mission. This service could be used if the user wants to use thier own global planner to plan the path, and pass it to the navigation stack for the robot to follow it. one example of program using this service is set_plan_client.
 
 **2. Set Route**
 
-      The ``/mission_executive/set_route`` service allows the user to set a predefined route comprised of waypoints from a .yaml file.
+      The ``/mission_executive/set_route`` service allows the user to set multiple waypoints programatically. One example of a program using this service is set_route_client (checkout :ref: `route_based_navigation`). 
 
 **3. Route Status**
 
