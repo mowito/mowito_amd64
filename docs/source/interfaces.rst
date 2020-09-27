@@ -37,7 +37,7 @@ Here is a list of the service calls in the navigation stack.
 
 **2. Set Route**
 
-      The ``/mission_executive/set_route`` service allows the user to set multiple waypoints programatically. One example of a program using this service is set_route_client (checkout :ref: `route_based_navigation`). 
+      The ``/mission_executive/set_route`` service allows the user to set multiple waypoints programatically. One example of a program using this service is set_route_client (checkout :ref:`route-based-navigation`). 
 
 **3. Route Status**
 

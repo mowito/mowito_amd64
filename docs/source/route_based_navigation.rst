@@ -1,5 +1,6 @@
-.. _route_base_navigation:
-Route based Navigation  
+.. _route-based-navigation:
+
+Route Based Navigation  
 ===========================================
 
 Overview
