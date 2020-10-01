@@ -15,7 +15,7 @@ Installing Mowito on Computer
 
 Ubuntu 18 - ROS Melodic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Create a ROS workspace directory structure (would usefule in running simulation)
+1. Create a ROS workspace directory structure (would be useful in running simulation)
 	
 	``mkdir -p ~/mowito_ws/src/``\
 
@@ -45,7 +45,8 @@ Ubuntu 18 - ROS Melodic
 
 Ubuntu 16 - ROS Kinetic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Create a ROS workspace directory structure (would usefule in running simulation)
+1. Create a ROS workspace directory structure (would be useful in running simulation)
+
 	``mkdir -p ~/mowito_ws/src/``
 
 2. Clone the repo in the workspace you just created, using
