@@ -66,7 +66,7 @@ Ubuntu 16 - ROS Kinetic
 
 5. [OPTIONAL] If you want to use the Rosbot Simulation, then build the workspace
 	
-	``source /opt/ros/melodic/setup.bash``\
+	``source /opt/ros/kinetic/setup.bash``\
 	
 	``cd ~/mowito_ws && catkin_make``
 
