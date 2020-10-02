@@ -104,6 +104,10 @@ B. Running Navigation with no Map (SLAM) / Navigation to create Map
                                     
 the map is saved in the .ros folder in the home directory with the name **husky_map.posegraph** and **husky_map.data**. 
 
+Alternatively, in order to save the map, on a new terminal execute the following:
+      
+      ``rosservice call /slam_toolbox/serialize_map "husky_serialize"``
+
 C. Running Navigation  with a pre-exitsting Map
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             0. Source the workspace
