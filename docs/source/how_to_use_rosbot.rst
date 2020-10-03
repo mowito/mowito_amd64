@@ -40,7 +40,7 @@ A. Running Navigation with no Map / Navigation to create Map
 
                   1.2. **Navigation, by giving goals through the rviz**:
                   
-                        ``roslaunch mowito_rosbot sim_navigation_with_no_map.launch``
+                        ``roslaunch mowito_rosbot sim_mw_navigation_with_no_map.launch``
                   
                   on rviz, give goals on the map, and the robot will move autnomously while creating the map
 
