@@ -5,11 +5,11 @@ On all the terminals you open, source the ROS:
 
 For ROS Melodic
 
-   ``source /opt/ros/melodic/setup.bash``
+   ``source <path to mowito_ws>/devel/setup.bash``
 
 For ROS Kinetic 
 
-   ``source /opt/ros/kinetic/setup.bash``
+   ``source <path to mowito_ws>/devel/setup.bash``
 
 
 ::
