@@ -29,7 +29,7 @@ sudo apt install ros-${ros_version}-joint-state-controller -y
 sudo apt-get install ros-${ros_version}-behaviortree-cpp-v3 -y      # installation of behavior trees for teleop keyboard
 sudo apt-get install ros-${ros_version}-teleop-twist-keyboard -y    # installation of teleop keyboard
 
-sudo apt-get install ros-${ros_version}-map-server                  # installation of map server
+sudo apt-get install ros-${ros_version}-map-server                  # installation of map server 
 
 echo "===================================="
 echo "Installing Mowito packages"
