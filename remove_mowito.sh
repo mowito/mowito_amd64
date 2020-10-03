@@ -29,6 +29,9 @@ pkg_names=(
     controller-executive
     recovery-executive
     global-planner
+    behaviortree-cpp-v3
+    teleop-twist-keyboard
+    map-server
 )
 
 
