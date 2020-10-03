@@ -134,6 +134,10 @@ C. Running Navigation  with a pre-exitsting Map
                         ``cd ~/mowito_ws/src/mowito_husky/husky/mowito_husky/maps/``
                         ``cp husky_serialize.data husky_serialize.posegraph ~/.ros/``
 
+                  - set the name of the map file in mowito_ws/src/mowito_husky/husky/mowito_husky/config/slam_toolbox_config/slam_toolbox_localization.yaml:
+         
+                        ``map_file_name: husky_serialize``
+
                   - run `slam toolbox` for mapping/ SLAM with velodyne:
 
                         ``roslaunch mowito_husky sim_mw_navigation_slam_toolbox.launch``               
