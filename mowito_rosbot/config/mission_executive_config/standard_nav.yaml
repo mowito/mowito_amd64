@@ -1,8 +1,0 @@
-# configuration for a general navigation scenario
-planner: NavfnPlanner
-loop_frequency: 20
-max_time_lag: 0.5
-decay: 0.9
-costmap_reset_timeout: 10
-controller_reset_timeout: 15
-max_retries: 500
