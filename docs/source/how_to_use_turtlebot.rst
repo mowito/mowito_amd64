@@ -24,7 +24,7 @@ A. Set up turtle bot sim
 ^^^^^^^^^^^^^^^^^^^^^^^^^
    1. Clone the turtle bot sim in mowito_ws (the one you setup during installation)
       
-      ``cd ~/mowito_ws/src/ && git clone https://github.com/akshay-antony/turtle_mowito.git``
+      ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_turtlebot.git``
 
    2. Install the dependencies 
    
