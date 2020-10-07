@@ -20,7 +20,7 @@ Mowito's Navigation Stack documentation
 
    Installation
 
-   how_to_use_mowito_stack
+   how_to_use_mowito
 
    step_1
 
