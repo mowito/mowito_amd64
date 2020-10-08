@@ -32,6 +32,8 @@ Mowito's Navigation Stack documentation
 
    step_5
 
+   interfaces
+
    troubleshooting
 
    faq
