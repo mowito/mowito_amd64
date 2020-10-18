@@ -1,5 +1,5 @@
 =======================
-Step 1 : Choosing a Bot
+Step 1 : Choosing a Bot for Simulation
 =======================
 
 The following Bot are currently compatible with the Mowito Navigation Stack.
@@ -8,10 +8,7 @@ The following Bot are currently compatible with the Mowito Navigation Stack.
 
 2) TurtleBot
 
-3) HuskyBot
+3) Husky
 
-4) JackalBot
+4) Jackal
 
-The image below provides a glimpse of the features of the aforementioned bots.
-
-<In construction>

@@ -25,11 +25,11 @@ Step 1 : Cloning the chosen bot in the mowito_ws (the one you setup during insta
 
 **For HuskyBot, run the following command**
 
-    ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_huskybot.git``
+    ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_husky.git``
 
 **For JackalBot, run the following command**
 
-    ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_jackalbot.git``
+    ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_jackal.git``
 
 Step 2 : Install the dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
