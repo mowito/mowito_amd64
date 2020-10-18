@@ -40,7 +40,13 @@ Step 3 : Build the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     ``catkin_make``
 
-------------------
-Setup for Hardware
-------------------
+Step 4 : FOR TURTLEBOT ONLY
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run the following commands
+
+    ``source <path_to_mowito_ws>/devel/setup.bash``
+
+    ``export TURTLEBOT3_MODEL=waffle_pi``
+
 

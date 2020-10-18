@@ -36,8 +36,4 @@ Mowito's Navigation Stack documentation
 
    behavior_tree
 
-   troubleshooting
-
-   faq
-
 

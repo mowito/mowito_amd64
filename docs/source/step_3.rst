@@ -11,6 +11,10 @@ Mapping for Simulation Pursose
 Method 1 : Manual Map generation via remote control robot exploration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**Step 0 : Source the workspace**
+
+    ``source <path_to_mowito_ws>/devel/setup.bash``
+
 **Step 1 : Launch the sim_mw_mapping node**
 
 *For ROSBot, run the following command*
@@ -19,11 +23,13 @@ Method 1 : Manual Map generation via remote control robot exploration
 
 *For TurtleBot, run the following command*
 
-    ``roslaunch mowito_turtlebot sim_mw_mapping.launch``
+    ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+    ``roslaunch mowito_turtlebot turtle_mowito_mapping.launch``
 
 *For HuskyBot, run the following command*
 
-    ``roslaunch mowito_huskybot sim_mw_mapping.launch``
+    ``roslaunch mowito_husky sim_mw_mapping.launch``
 
 **Step 2 : Launch the remote control for providing commands to the bot**
 
@@ -42,12 +48,23 @@ Here, the robot will explore the map based on the goal destination provided by t
 
 *For TurtleBot, run the following command*
 
-    ``roslaunch mowito_turtlebot sim_mw_navigation_with_no_map.launch``
+    ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+    ``roslaunch mowito_turtlebot turtle_mowito_nav_no_map.launch``
 
 *For HuskyBot, run the following command*
 
-     ``roslaunch mowito_huskybot sim_mw_navigation_with_no_map.launch``
-   
+     ``roslaunch mowito_husky sim_mw_navigation_with_no_map.launch``
+
+    For using cartographer for mapping/ SLAM instead of default mw_mapping, use the following commad:
+    
+     ``roslaunch mowito_husky sim_mw_navigation_with_no_map.launch cartographer:=true``
+
+    For using slam toolbox for mapping/ SLAM with velodyne, use the following commad:
+
+     ``roslaunch mowito_husky sim_mw_navigation_with_no_map_slam_toolbox.launch``
+
+
 
 The goal can be provided on RViz using the "2D Nav Goal" feature provided on RViz.
 
@@ -68,11 +85,13 @@ Here, the robot will explore the map without user interference.
 
 *For TurtleBot, run the following command*
 
-    ``roslaunch mowito_turtlebot sim_mw_mapping_with_explore.launch``
+    ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+    ``roslaunch mowito_turtlebot turtle_mowito_exploration.launch``
 
 *For HuskyBot, run the following command*
 
-    ``roslaunch mowito_huskybot sim_mw_mapping_with_explore.launch``
+    ``roslaunch mowito_husky sim_mw_mapping_with_explore.launch``
    
 on rviz you can see the robot automatically moving and exploring the area.
 
@@ -84,3 +103,28 @@ Once you are done creating the map on rviz, save the map on a new terminal exeut
     ``cd && rosrun map_server map_saver -f mymap``
             
 the map (pgm and yaml) is saved  in the home directory with the name mymap.pgm and mymap.yaml
+
+*For Huskybot*
+
+1) if you were using cartographer to build the map , run the following command
+
+    ``rosrun mowito_husky save_carto_map.sh map_name``
+   
+   the map (pbstream) is saved in the home directory with the name map_name.pbstream. If no map_name is given then it would save as map.pbstream
+2) if you were using slam toolbox to build the map, open the slam toolbox plugin in Rviz by clicking the panels and give a name for the map and store it using serialize map option.
+
+.. image:: Images/slam_toolbox/panels.png
+   :alt: panels.png
+   :align: center
+   
+
+.. image:: Images/slam_toolbox/toolbox.png
+   :alt: toolbox.png
+   :align: center
+
+  
+the map is saved in the .ros folder in the home directory with the name husky_map.posegraph and husky_map.data.
+
+Alternatively, in order to save the map, on a new terminal execute the following:
+
+        ``rosservice call /slam_toolbox/serialize_map "husky_serialize"``
