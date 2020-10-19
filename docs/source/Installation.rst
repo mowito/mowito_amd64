@@ -115,8 +115,8 @@ Ubuntu 16 - ROS Kinetic
 
 5. [OPTIONAL] If you want to use the Rosbot Simulation, then build the workspace
 	
-	``source <path to mowito_ws>/devel/setup.bash``\
-	
-	``cd ~/mowito_ws && catkin_make``
+	``cd ~/mowito_ws && catkin_make``\
+
+	``source <path to mowito_ws>/devel/setup.bash``
 
 
