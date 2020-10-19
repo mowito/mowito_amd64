@@ -28,6 +28,8 @@ Mowito's Navigation Stack documentation
    
    interfaces
 
+   config
+
    trajectory_planner_tuning
 
    pure_pursuit_tuning
