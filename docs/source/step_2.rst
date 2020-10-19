@@ -27,6 +27,12 @@ Step 1 : Cloning the chosen bot in the mowito_ws (the one you setup during insta
 
     ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_husky.git``
 
+    .. NOTE::
+
+            To use velodyne and `slam toolbox <https://github.com/SteveMacenski/slam_toolbox>`_ with husky, switch to the branch **velodyne_with_husky**
+
+                  ``cd ~/mowito_ws/src/mowito_husky && git checkout velodyne_with_husky``
+
 **For JackalBot, run the following command**
 
     ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_jackal.git``
