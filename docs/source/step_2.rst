@@ -1,5 +1,5 @@
 ======================
-Step 2 : Setup the Bot
+Part 2 : Setup the Bot
 ======================
 
 This section shall provide the instructions to setup the stack on the chosen Bot.

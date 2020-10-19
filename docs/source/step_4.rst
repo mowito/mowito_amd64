@@ -1,5 +1,5 @@
 ================================
-Step 4 : Navigate the Chosen Bot
+Part 4 : Navigate the Chosen Bot
 ================================
 
 This section shall provide instructions on how to navigate the chosen Bot.
@@ -28,6 +28,10 @@ Navigation for Simulation Purpose
 *For TurtleBot, run the following command*
 
     ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+    In another terminal, run the following commands:
+
+    ``export TURTLEBOT3_MODEL=waffle_pi``
 
     ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch``
     
@@ -99,9 +103,13 @@ There are two ways to go about using Routes, based on when the user wants to cha
 
       ``roslaunch mowito_rosbot sim_mw_navigation.launch``
 
-    *For TurtleBot run the following command*
+    *For TurtleBot run the following commands*
           
       ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+      In another terminal, run the following commands:
+
+      ``export TURTLEBOT3_MODEL=waffle_pi``
 
       ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch``
 
@@ -125,6 +133,10 @@ There are two ways to go about using Routes, based on when the user wants to cha
       *For TurtleBot run the following command*
 
        ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+       In another terminal, run the following commands:
+
+       ``export TURTLEBOT3_MODEL=waffle_pi``
 
        ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch``   
 

@@ -32,6 +32,12 @@ Mowito's Navigation Stack documentation
 
    step_5
 
+   step_5a
+
+   step_5b
+
+   step_5c
+
    interfaces
 
    behavior_tree

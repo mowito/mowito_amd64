@@ -1,5 +1,5 @@
 =======================
-Step 3 : Generate a Map
+Part 3 : Generate a Map
 =======================
 
 The Mowito Navigation Stack provides three methods to generate a map.
@@ -21,9 +21,13 @@ Method 1 : Manual Map generation via remote control robot exploration
 
     ``roslaunch mowito_rosbot sim_mw_mapping.launch``
 
-*For TurtleBot, run the following command*
+*For TurtleBot, run the following commands*
 
     ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+    In another terminal, run the following commands:
+
+    ``export TURTLEBOT3_MODEL=waffle_pi``
 
     ``roslaunch mowito_turtlebot turtle_mowito_mapping.launch``
 
@@ -49,6 +53,10 @@ Here, the robot will explore the map based on the goal destination provided by t
 *For TurtleBot, run the following command*
 
     ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+    In another terminal, run the following commands:
+
+    ``export TURTLEBOT3_MODEL=waffle_pi``
 
     ``roslaunch mowito_turtlebot turtle_mowito_nav_no_map.launch``
 
@@ -83,9 +91,13 @@ Here, the robot will explore the map without user interference.
 
     ``roslaunch mowito_rosbot sim_mw_mapping_with_explore.launch``
 
-*For TurtleBot, run the following command*
+*For TurtleBot, run the following commands*
 
     ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
+
+    In another terminal, run the following commands:
+
+    ``export TURTLEBOT3_MODEL=waffle_pi``
 
     ``roslaunch mowito_turtlebot turtle_mowito_exploration.launch``
 
