@@ -31,9 +31,13 @@ Method 1 : Manual Map generation via remote control robot exploration
 
     ``roslaunch mowito_turtlebot turtle_mowito_mapping.launch``
 
-*For HuskyBot, run the following command*
+*For Husky, run the following command*
 
     ``roslaunch mowito_husky sim_mw_mapping.launch``
+
+*For Jackal, run the following command*
+
+    ``roslaunch mowito_jackal jackal_mw_mapping.launch`` 
 
 **Step 2 : Launch the remote control for providing commands to the bot**
 
@@ -60,7 +64,7 @@ Here, the robot will explore the map based on the goal destination provided by t
 
     ``roslaunch mowito_turtlebot turtle_mowito_nav_no_map.launch``
 
-*For HuskyBot, run the following command*
+*For Husky, run the following command*
 
      ``roslaunch mowito_husky sim_mw_navigation_with_no_map.launch``
 
@@ -72,7 +76,9 @@ Here, the robot will explore the map based on the goal destination provided by t
 
      ``roslaunch mowito_husky sim_mw_navigation_with_no_map_slam_toolbox.launch``
 
+*For Jackal, run the following command*
 
+    ``roslaunch mowito_jackal jackal_mw_nav_no_map.launch``
 
 The goal can be provided on RViz using the "2D Nav Goal" feature provided on RViz.
 
@@ -82,30 +88,6 @@ The icon is highlighted in red in the image below.
    :alt: 2D_nav_goal_icon.png.png
    :align: center
 
-Method 3 : Map generation by autonomous robot exploration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Here, the robot will explore the map without user interference.
-
-*For ROSBot, run the following command*
-
-    ``roslaunch mowito_rosbot sim_mw_mapping_with_explore.launch``
-
-*For TurtleBot, run the following commands*
-
-    ``roslaunch turtlebot3_gazebo turtlebot3_world.launch``
-
-    In another terminal, run the following commands:
-
-    ``export TURTLEBOT3_MODEL=waffle_pi``
-
-    ``roslaunch mowito_turtlebot turtle_mowito_exploration.launch``
-
-*For HuskyBot, run the following command*
-
-    ``roslaunch mowito_husky sim_mw_mapping_with_explore.launch``
-   
-on rviz you can see the robot automatically moving and exploring the area.
 
 Saving the Map
 ^^^^^^^^^^^^^^

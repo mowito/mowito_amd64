@@ -68,6 +68,10 @@ Navigation for Simulation Purpose
     
        ``roslaunch mowito_husky sim_mw_navigation_slam_toolbox.launch``
 
+*For Jackal, run the following command*
+
+    ``roslaunch mowito_jackal jackal_mw_nav.launch``
+
 Here, "mymap" is the map that was generated in the earlier step (Step 3 : Generate the map)
 
 **Step 3 : in the rviz, click on the second top panel, click on the nav goal option, and click on the displayed map to give goal to the robot**
@@ -113,9 +117,13 @@ There are two ways to go about using Routes, based on when the user wants to cha
 
       ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch``
 
-    *For HuskyBot run the following command*
+    *For Husky run the following command*
           
       ``roslaunch mowito_husky sim_mw_navigation.launch``
+
+    *For Jackal run the following command*
+          
+      ``roslaunch mowito_jackal jackal_mw_nav.launch``  
 
    4. In a new terminal, run the set_route_client node with the appropriate file path to the route.yaml (type) file. Sample route files are available in the samples folder of the mowito_husky package:
                   
@@ -140,9 +148,13 @@ There are two ways to go about using Routes, based on when the user wants to cha
 
        ``roslaunch mowito_turtlebot turtle_mowito_nav_map.launch``   
 
-      *For HuskyBot run the following command*
+      *For Husky run the following command*
           
         ``roslaunch mowito_husky sim_mw_navigation.launch``
+      
+      *For Jackal run the following command*
+          
+         ``roslaunch mowito_jackal jackal_mw_nav.launch``
 
    2. Use the change_planner and change_controller services to change the planner and controller respectively. For this, in a new terminal, execute:  
    

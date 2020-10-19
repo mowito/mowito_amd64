@@ -23,7 +23,7 @@ Step 1 : Cloning the chosen bot in the mowito_ws (the one you setup during insta
 
     ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_turtlebot.git``
 
-**For HuskyBot, run the following command**
+**For Husky, run the following command**
 
     ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_husky.git``
 
