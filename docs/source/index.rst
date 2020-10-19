@@ -38,6 +38,8 @@ Mowito's Navigation Stack documentation
 
    step_5c
 
+   rosbot_real
+
    interfaces
 
    behavior_tree

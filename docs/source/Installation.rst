@@ -71,7 +71,7 @@ Ubuntu 18 - ROS Melodic
 
 2. Clone the repo in the workspace you just created, using
 
-	``cd mowito_ws/src/``
+	``cd ~mowito_ws/src/``
 
 	``git clone -b melodic https://github.com/mowito/mowito_amd64.git`` 
 
