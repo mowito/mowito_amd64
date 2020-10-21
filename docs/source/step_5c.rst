@@ -1,5 +1,6 @@
-Controller: Teb Local Planner Tuning Guide
-==========================================
+======================================================
+Part 5-C : Controller - Teb Local Planner Tuning Guide
+======================================================
 
 Description
 -----------
@@ -369,4 +370,3 @@ E. Why does the robot oscillate if the goal is near an obstacle?
   :align: center
 
 This is because the value of inflation radius and min_obstacle_dist are set pretty low. Note that if you are using a point footprint model the min_obstacle_dist must also include the radius of the robot. Set the inflation radius greater than the min_obstacle_dist and also make sure that the robot follows the global plan more accurately to reduce the oscillations. 
-

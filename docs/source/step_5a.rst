@@ -1,5 +1,6 @@
-Controller: Trajectory Planner Tuning Guide
-===========================================
+=======================================================
+Part 5-A : Controller - Trajectory Planner Tuning Guide
+=======================================================
 
 Overview
 --------

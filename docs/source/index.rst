@@ -16,27 +16,34 @@ Mowito's Navigation Stack documentation
 .. toctree::
    :maxdepth: 2
 
+   Introduction
+
    Installation
 
-   how_to_use_rosbot
+   how_to_use_mowito
 
-   how_to_use_turtlebot
+   step_1
 
-   how_to_use_husky
+   step_2
 
-   route_based_navigation
-   
-   interfaces
+   step_3
+
+   step_4
+
+   step_5
+
+   step_5a
+
+   step_5b
+
+   step_5c
 
    config
 
-   trajectory_planner_tuning
+   rosbot_real
 
-   pure_pursuit_tuning
-
-   teb_local_planner
+   interfaces
 
    behavior_tree
-   
 
 
