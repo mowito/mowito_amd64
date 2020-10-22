@@ -18,9 +18,9 @@ Mowito's Navigation Stack documentation
 
    Introduction
 
-   Installation
-
    how_to_use_mowito
+
+   Installation
 
    step_1
 
