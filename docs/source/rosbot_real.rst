@@ -81,8 +81,8 @@ We won't spam. :)
 
 .. _installion on rosbot:
 
-Installation on ROSbot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installation Mowito Navigation Stack 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   1. **SSH** into the ROSBot
       
@@ -117,6 +117,30 @@ Installation on ROSbot
 
   6. In the end, the setup will ask for the uesr registeration.
       Use the user name you used on the registration website and password that was mailed to  you. You can use any name as robot name.
+
+Installation of Mowito Rosbot Package 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mowito Rosbot package simply contains the necessary launch files and config files, which Mowito team create for easy deployment on ROSbot.
+
+  1. **SSH** into the ROSBot
+
+  2. clone the Mowito ROSbot package into the mowito_ws
+
+    ``cd ~/mowito_ws/src && git clone https://github.com/mowito/mowito_rosbot.git``
+
+  3. Build the Mowito ROSbot package.
+
+    ``cd ~/mowito_ws && catkin_make``
+
+    of if you use catkin build tools
+
+    ``cd ~/mowito_ws && catkin build``
+
+  4. source the mowito_ws whenever you need to run mowito_rosbot
+
+    ``source ~/mowito_ws/devel/setup.bash``
+
+    TIP:: you can add the above command in you ``~/.bashrc`` so that its atuomatically executed everytime you open the terminal.
 
 
 -------------------------------
