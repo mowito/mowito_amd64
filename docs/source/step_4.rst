@@ -1,5 +1,5 @@
 ================================
-Part 4 : Navigate the Chosen Bot
+Step 4 : Navigate the Chosen Bot
 ================================
 
 This section shall provide instructions on how to navigate the chosen Bot.

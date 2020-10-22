@@ -1,5 +1,5 @@
 ==============================================
-Part 1 : Choosing a Bot for Simulation
+Step 1 : Choosing a Bot for Simulation
 ==============================================
 
 The following Bot are currently compatible with the Mowito Navigation Stack.

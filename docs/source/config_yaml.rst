@@ -2,7 +2,7 @@ Config Paramaters
 ======================================
 
 Mission Executive Config Parameters
---------------------
+----------------------------------------
 Below is a brief of the parameters in the Mission Executive Config file.
 
 

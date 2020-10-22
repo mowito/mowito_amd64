@@ -65,11 +65,13 @@ Connect To ROSBot
 
 
 -----------------------------
-Setup Mowito's Stack On It
+Setup Mowito's Stack On Robot
 -----------------------------
 
 User Registration
 ^^^^^^^^^^^^^^^^^
+
+If you have already done, you can skip this step.
 
 Register yourself on this website https://mowito.in/navigation_stack.html
 
@@ -77,8 +79,10 @@ We need your email to mail you the password, and to count how many people are us
 
 We won't spam. :) 
 
-Installation
-^^^^^^^^^^^^^^^
+.. _installion on rosbot:
+
+Installation on ROSbot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   1. **SSH** into the ROSBot
       
@@ -89,14 +93,14 @@ Installation
   3. Clone the repo containing the debians:
       ``cd ~/mowito_ws/src``\
 
-      for ROS melodic  
-      ``git clone https://github.com/mowito/mowito_armv7.git --branch melodic``
+      for ROS melodic on arm 64 
+      ``git clone https://github.com/mowito/mowito_arm64.git --branch melodic``
 
-      for ROS kinetic \
+      for ROS kinetic on armV7 (armhf) \
       ``git clone https://github.com/mowito/mowito_armv7.git --branch kinetic``
 
   4. Remove any previous installation of Mowito stack 
-      ``cd mowito_armv7``\ 
+      ``cd mowito_arm64`` or ``cd mowito_armv7``   based on arm 64 or armV7 respcectively.
 
       for ROS melodic
       ``./remove_mowito.sh melodic``
@@ -177,7 +181,7 @@ Step 1 : Launch the Mowito Navigation without Map
 
     ``roslaunch mowito_rosbot run_mw_navigation_with_no_map.launch cartographer:=true``
 
-    3. With Slam Toolbox
+
 
 
 Step 2: Provide Goal
@@ -218,12 +222,12 @@ the map (pgm and yaml) is saved  in the home directory with the name mymap.pgm a
     the map (pbstream) is saved in the home directory with the name map_name.pbstream. If no map_name is given then it would save as map.pbstream
 
 
-3) SLAM toolbox
-~~~~~~~~~~~~~~~~~
+.. 3) SLAM toolbox
+.. ~~~~~~~~~~~~~~~~~
 
-in order to save the map,
+.. in order to save the map,
 
-        ``rosservice call /slam_toolbox/serialize_map "rosbot"``
+..         ``rosservice call /slam_toolbox/serialize_map "rosbot"``
 
 
 -----------------------------------
@@ -262,26 +266,26 @@ Step 2 : Run the Mowito's Navigation Stack
       ``roslaunch mowito_rosbot run_mw_navigation.launch cartographer:=true``
 
 
-3. SLAM toolbox based localization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. 3. SLAM toolbox based localization
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Follow this if you used SLAM toolbox to create the map in the previous step
+..     Follow this if you used SLAM toolbox to create the map in the previous step
 
-      3.1. move the map data to .ros folder in your system by running the following two commands:
+..       3.1. move the map data to .ros folder in your system by running the following two commands:
 
-       ``cd <path_to_mowito_ws>/src/mowito_husky/husky/mowito_husky/maps/``
+..        ``cd <path_to_mowito_ws>/src/mowito_husky/husky/mowito_husky/maps/``
 
-       ``cp husky_serialize.data husky_serialize.posegraph ~/.ros/``
+..        ``cp husky_serialize.data husky_serialize.posegraph ~/.ros/``
     
-      3.2. set the name of the map file and map start pose [x,y,theta] in mowito_ws/src/mowito_husky/husky/mowito_husky/config/slam_toolbox_config/slam_toolbox_localization.yaml:
+..       3.2. set the name of the map file and map start pose [x,y,theta] in mowito_ws/src/mowito_husky/husky/mowito_husky/config/slam_toolbox_config/slam_toolbox_localization.yaml:
 
-       ``map_file_name: husky_serialize``
+..        ``map_file_name: husky_serialize``
 
-       ``map_start_pose: [0.0, 0.0, 0.0]``
+..        ``map_start_pose: [0.0, 0.0, 0.0]``
     
-      3.3. run slam toolbox for mapping/ SLAM with velodyne:
+..       3.3. run slam toolbox for mapping/ SLAM with velodyne:
     
-       ``roslaunch mowito_husky sim_mw_navigation_slam_toolbox.launch``
+..        ``roslaunch mowito_husky sim_mw_navigation_slam_toolbox.launch``
 
 
 Step 3 : Give the goals

@@ -51,7 +51,7 @@ Software Requirements
 
 
 ----------------------------------------------
-Setting up Mowito Navigation Stack on Computer
+Setting up Mowito Navigation Stack 
 ----------------------------------------------
 
 User Registration
@@ -63,8 +63,9 @@ We need your email to mail you the password, and to count how many people are us
 
 We won't spam. :) 
 
-Ubuntu 18 - ROS Melodic
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Installing the Mowito on Computer ( amd64 or x86)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 1. Create a ROS workspace directory structure (would be useful in running simulation)
 	
 	``mkdir -p ~/mowito_ws/src/``\
@@ -72,51 +73,41 @@ Ubuntu 18 - ROS Melodic
 2. Clone the repo in the workspace you just created, using
 
 	``cd ~mowito_ws/src/``
-
-	``git clone -b melodic https://github.com/mowito/mowito_amd64.git`` 
-
-3. Remove any previous installation of Mowito stack 
-
-	``cd mowito_amd64``\ 
-
-	``./remove_mowito.sh melodic``
-
-4. Install the new Mowito stack 
-
- 	``./setup_mowito.sh melodic``\
-
-5. [OPTIONAL] If you want to use the Rosbot Simulation, then build the workspace
 	
-	``cd ~/mowito_ws && catkin_make``\
-	
-	``source <path to mowito_ws>/devel/setup.bash``	
+	for Ubuntu 18 - ROS Melodic
 
-Ubuntu 16 - ROS Kinetic
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Create a ROS workspace directory structure (would be useful in running simulation)
+	``git clone -b melodic https://github.com/mowito/mowito_amd64.git`` \
 
-	``mkdir -p ~/mowito_ws/src/``
-
-2. Clone the repo in the workspace you just created, using
-
-	``cd mowito_ws/src/``\
+	for Ubuntu 16 - ROS Kinetic
 
 	``git clone -b kinetic https://github.com/mowito/mowito_amd64.git``\ 
 
 3. Remove any previous installation of Mowito stack 
 
-	``cd ~/mowito_amd64``\ 
+	``cd mowito_amd64``\ 
+
+	for Ubuntu 18 - ROS Melodic
+
+	``./remove_mowito.sh melodic``
+
+	for Ubuntu 16 - ROS Kinetic
 
 	``./remove_mowito.sh kinetic``
 
 4. Install the new Mowito stack 
 
-	``./setup_mowito.sh kinetic``\
+ 	for Ubuntu 18 - ROS Melodic
 
-5. [OPTIONAL] If you want to use the Rosbot Simulation, then build the workspace
-	
-	``cd ~/mowito_ws && catkin_make``\
+ 	``./setup_mowito.sh melodic``\
 
-	``source <path to mowito_ws>/devel/setup.bash``
+ 	for Ubuntu 16 - ROS Kinetic
+
+ 	``./setup_mowito.sh kinetic``\
+
+
+Installing the Mowito on the Robot -ROSbot  ( arm64, armhf)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ Checkout :ref:`installation instructions for ROSbot<installion on rosbot>`. You can try out same steps on the turtlebot and other robots as well.
+
 
 

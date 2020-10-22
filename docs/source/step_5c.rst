@@ -1,5 +1,5 @@
 ======================================================
-Part 5-C : Controller - Teb Local Planner Tuning Guide
+Step 5-C : Controller - Teb Local Planner Tuning Guide
 ======================================================
 
 Description

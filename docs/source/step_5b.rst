@@ -1,5 +1,5 @@
 =================================================
-Part 5-B : Controller - Pure Pursuit Tuning Guide
+Step 5-B : Controller - Pure Pursuit Tuning Guide
 =================================================
 
 Description

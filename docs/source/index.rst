@@ -38,7 +38,7 @@ Mowito's Navigation Stack documentation
 
    step_5c
 
-   config
+   config_yaml
 
    rosbot_real
 

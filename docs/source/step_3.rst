@@ -1,5 +1,5 @@
 =======================
-Part 3 : Generate a Map
+Step 3 : Generate a Map
 =======================
 
 The Mowito Navigation Stack provides three methods to generate a map.
