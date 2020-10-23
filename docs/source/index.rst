@@ -32,13 +32,11 @@ Mowito's Navigation Stack documentation
 
    step_5
 
-   step_5a
+   config_traj_planner
 
-   step_5b
+   config_pp
 
-   step_5c
-
-   config_yaml
+   config_mission_executive
 
    rosbot_real
 

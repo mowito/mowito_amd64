@@ -1,3 +1,5 @@
+.. _running the rosbot:
+
 ==========================
 Running the Actual ROSBot
 ==========================
@@ -22,6 +24,8 @@ Connect To ROSBot
       ``hostname -I``
       The output is the IP address of the ROSbot, note it down. 
 
+.. _ssh:
+
 3. SSH into the ROSbot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -35,7 +39,7 @@ Connect To ROSBot
 4. Export ROS_IP on ROSBot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  4.1. SSH into the ROSbot and execute the following :
+  4.1. :ref:`SSH<ssh>` into the ROSbot and execute the following :
       ``export ROS_IP=<ip address of the ROSbot>``
 
   4.2. If you have avahi daemon  running then you can instead try:
@@ -44,6 +48,8 @@ Connect To ROSBot
       where husarion is the hostanme of your ROSbot
 
       You have to execute the above commands every time you ssh into ROSbot to run Mowito's navigation stack.
+
+.. _setup ground station:
 
 5. Setup the Laptop (ground station)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,9 +70,9 @@ Connect To ROSBot
       You have execute above two commans on each terminal of Laptop (Ground station) which you want to use for communicating to the ROSbot.
 
 
------------------------------
+-------------------------------
 Setup Mowito's Stack On Robot
------------------------------
+-------------------------------
 
 User Registration
 ^^^^^^^^^^^^^^^^^
@@ -84,7 +90,7 @@ We won't spam. :)
 Installation Mowito Navigation Stack 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  1. **SSH** into the ROSBot
+  1. :ref:`SSH<ssh>` into the ROSBot
       
 
   2. Create mowito directory
@@ -122,7 +128,7 @@ Installation of Mowito Rosbot Package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Mowito Rosbot package simply contains the necessary launch files and config files, which Mowito team create for easy deployment on ROSbot.
 
-  1. **SSH** into the ROSBot
+  1. :ref:`SSH<ssh>` into the ROSBot
 
   2. clone the Mowito ROSbot package into the mowito_ws
 
@@ -155,14 +161,15 @@ During this phase, for navigation the robot, you can use two methods
 Method 1 : Manual Navigation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Step 0 : SSH into the rosbot and on it source the workspace**
+Step 0 : :ref:`SSH<ssh>` into the rosbot and on it source the workspace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     ``ssh husarion@husarion.local`` 
 
     ``source ~/mowito_ws/devel/setup.bash``
 
-**Step 1 : Launch the sim_mw_mapping node**
-
+Step 1 : Launch the sim_mw_mapping node
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     1.  With Mowito Mapping (default)
 
     ``roslaunch mowito_rosbot run_mw_mapping.launch``
@@ -171,11 +178,11 @@ Method 1 : Manual Navigation
     
     ``roslaunch mowito_rosbot run_mw_mapping.launch cartographer:=true``
     
-    3. With Slamtoolbox
+    .. 3. With Slamtoolbox
 
-**Step 2 : Launch the remote control for providing commands to the bot**
-
-in another terminal, **ssh in into rosbot** and run the following command :
+Step 2 : Launch the remote control for providing commands to the bot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+in another terminal, :ref:`SSH<ssh>` in into rosbot and run the following command :
 
     ``rosrun teleop_twist_keyboard teleop_twist_keyboard``
 
@@ -186,8 +193,8 @@ Method 2 : Autonomous Navigation
 Here, the robot will explore the map based on the goal destination provided by the user on RViz.
 
 
-Step 0 : SSH into the rosbot and on it source the workspace
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 0 : :ref:`SSH<ssh>` into the rosbot and on it source the workspace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     ``ssh husarion@husarion.local`` 
 
@@ -211,7 +218,7 @@ Step 1 : Launch the Mowito Navigation without Map
 Step 2: Provide Goal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Open another terminal, export ROS_MASTER_URI and ROS_IP and then start rviz
+    Open another terminal, export :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>` and then start rviz
 
     ``rviz``
 
@@ -258,8 +265,8 @@ the map (pgm and yaml) is saved  in the home directory with the name mymap.pgm a
 Navigation - With Map 
 -----------------------------------
 
-Step 0 : SSH into ROSBot and Source the workspace
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 0 : :ref:`SSH<ssh>` into ROSBot and Source the workspace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     ``source <path_to_mowito_ws>/devel/setup.bash``
 
@@ -315,10 +322,15 @@ Step 2 : Run the Mowito's Navigation Stack
 Step 3 : Give the goals
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    In another terminal, export the ROS_MASTER_URI and ROS_IP, source ros and start rviz:
+    In another terminal, export the :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>`, source ros and start rviz:
 
     ``rviz``
     
     In the rviz, click on the second top panel, click on the nav goal option, and click on the displayed map to give goal to the robot.
 
 
+-------------------------------------
+Configuring Navigation Stack
+-------------------------------------
+
+Check out our :ref:`documentation on configuring Mowito Navigation Stack<config>` on a robot.

@@ -1,8 +1,12 @@
 ==============================================
-Step 1 : Choosing a Bot for Simulation
+Step 1 : Choosing a Bot 
 ==============================================
 
-The following Bot are currently compatible with the Mowito Navigation Stack.
+----------------------------
+For Simulation
+----------------------------
+
+Mowito provide packages for the simulation of following robots:
 
 1) ROSbot
 
@@ -12,3 +16,12 @@ The following Bot are currently compatible with the Mowito Navigation Stack.
 
 4) Jackal
 
+----------------------------
+For Real Robot testing
+----------------------------
+
+Although Mowito's navigaion stack can work on multiple kind of wheeled robots, we currently provide documentation for the following robots:
+
+1) :ref:`ROSbot<running the rosbot>` 
+
+You can adapt the steps and launch files for your own robot or contact Mowito (puru@mowito.in) to create custom launch files for your robot.

@@ -1,5 +1,7 @@
+.. _pp:
+
 =================================================
-Step 5-B : Controller - Pure Pursuit Tuning Guide
+Config : Controller - Pure Pursuit
 =================================================
 
 Description

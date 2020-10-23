@@ -1,5 +1,7 @@
+.. _traj_planner:
+
 =======================================================
-Step 5-A : Controller - Trajectory Planner Tuning Guide
+Config : Controller - Trajectory Planner
 =======================================================
 
 Overview
