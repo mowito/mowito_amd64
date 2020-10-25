@@ -218,7 +218,7 @@ Step 1 : Launch the Mowito Navigation without Map
 Step 2: Provide Goal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Open another terminal, export :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>` and then start rviz
+    Open another terminal, export :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>` and then source ROS and :ref:``start rviz<rviz>``:
 
     ``rviz``
 
@@ -322,7 +322,7 @@ Step 2 : Run the Mowito's Navigation Stack
 Step 3 : Give the goals
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    In another terminal, export the :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>`, source ros and start rviz:
+    In another terminal, export the :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>`, source ros and :ref:``start rviz<rviz>``:
 
     ``rviz``
     
@@ -334,3 +334,29 @@ Configuring Navigation Stack
 -------------------------------------
 
 Check out our :ref:`documentation on configuring Mowito Navigation Stack<config>` on a robot.
+
+.. _rviz:
+-------------------------------------
+Setting Up Rviz
+-------------------------------------
+
+Rviz is a tool for visualizing what the robot is seeing. Further, it could also provide GUI for the user to interact with the robot. Rviz can be opened in the computer (with screen) - most probably not the ROSbot, using the command ``rviz``(after sourcing ROS).
+
+In order to visualize all the interesting information on Rviz you have to add the topics on which they are getting published. You can find more information on this http://wiki.ros.org/rviz/UserGuide
+
+To add a topic of visualisation:
+
+1. On the left "Display" pane, click on "add"
+2. Click on "by topic"
+3. select the topic name
+4. click on "ok"
+
+now you one-by-one you have to add the following topics:
+``scan`` ``/map`` ``/plan`` ``/costmap/local_costmap/footprint`` ``/free_paths`` ``/local_path`` 
+
+for visualizing the axis of the robot and other frames:
+
+1. On the left "Display" pane, click on "add"
+2. Click on "by display"
+3. select "axes"
+4. click on "ok"
