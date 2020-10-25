@@ -119,7 +119,7 @@ Installation Mowito Navigation Stack
       ``./setup_mowito.sh melodic``\
 
       For ROS kinetic
-      ``./setup_mowito.sh melodic``\
+      ``./setup_mowito.sh kinetic``\
 
   6. In the end, the setup will ask for the uesr registeration.
       Use the user name you used on the registration website and password that was mailed to  you. You can use any name as robot name.
