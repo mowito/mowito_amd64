@@ -65,7 +65,7 @@ Connect To ROSBot
 
   5.2. Export ROS_MASTER_URI
       One same terminal execute the following:
-      ``export ROS_MASTER_URI=<ip address of the laptop>``
+      ``export ROS_MASTER_URI=http://<ip address of the ROSbot>:11311``
 
       You have execute above two commans on each terminal of Laptop (Ground station) which you want to use for communicating to the ROSbot.
 
