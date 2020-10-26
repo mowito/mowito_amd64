@@ -218,7 +218,7 @@ Step 1 : Launch the Mowito Navigation without Map
 Step 2: Provide Goal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    Open another terminal, export :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>` and then source ROS and :ref:``start rviz<rviz>``:
+    Open another terminal, export :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>` and then source ROS and :ref:`start rviz<rviz>`:
 
     ``rviz``
 
@@ -322,7 +322,7 @@ Step 2 : Run the Mowito's Navigation Stack
 Step 3 : Give the goals
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    In another terminal, export the :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>`, source ros and :ref:``start rviz<rviz>``:
+    In another terminal, export the :ref:`ROS_MASTER_URI and ROS_IP<setup ground station>`, source ros and :ref:`start rviz<rviz>`:
 
     ``rviz``
     
