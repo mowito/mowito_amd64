@@ -43,7 +43,7 @@ Method 1 : Manual Map generation via remote control robot exploration
 
 in another terminal, run the following command :
 
-    ``rosrun teleop_twist_keyboard teleop_twist_keyboard``
+    ``rosrun teleop_twist_keyboard teleop_twist_keyboard.py``
 
 Method 2 : Map generation by providing goal destination for navigating robot for exploration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

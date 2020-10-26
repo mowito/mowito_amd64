@@ -184,7 +184,7 @@ Step 2 : Launch the remote control for providing commands to the bot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 in another terminal, :ref:`SSH<ssh>` in into rosbot and run the following command :
 
-    ``rosrun teleop_twist_keyboard teleop_twist_keyboard``
+    ``rosrun teleop_twist_keyboard teleop_twist_keyboard.py``
 
 
 Method 2 : Autonomous Navigation
