@@ -336,11 +336,12 @@ Configuring Navigation Stack
 Check out our :ref:`documentation on configuring Mowito Navigation Stack<config>` on a robot.
 
 .. _rviz:
+
 -------------------------------------
 Setting Up Rviz
 -------------------------------------
 
-Rviz is a tool for visualizing what the robot is seeing. Further, it could also provide GUI for the user to interact with the robot. Rviz can be opened in the computer (with screen) - most probably not the ROSbot, using the command ``rviz``(after sourcing ROS).
+Rviz is a tool for visualizing what the robot is seeing. Further, it could also provide GUI for the user to interact with the robot. Rviz can be opened in the computer (with screen) - most probably not the ROSbot, using the command ``rviz`` (after sourcing ROS).
 
 In order to visualize all the interesting information on Rviz you have to add the topics on which they are getting published. You can find more information on this http://wiki.ros.org/rviz/UserGuide
 
@@ -357,6 +358,9 @@ now you one-by-one you have to add the following topics:
 for visualizing the axis of the robot and other frames:
 
 1. On the left "Display" pane, click on "add"
-2. Click on "by display"
+2. Click on "by display type"
 3. select "axes"
 4. click on "ok"
+
+
+Once you are satisfied with the configuration, click on File > save config, so that you don't have to configure Rviz everytime you open it.
