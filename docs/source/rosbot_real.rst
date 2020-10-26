@@ -347,20 +347,20 @@ In order to visualize all the interesting information on Rviz you have to add th
 
 To add a topic of visualisation:
 
-1. On the left "Display" pane, click on "add"
-2. Click on "by topic"
-3. select the topic name
-4. click on "ok"
+  1. On the left "Display" pane, click on "add"
+  2. Click on "by topic"
+  3. select the topic name
+  4. click on "ok"
 
 now you one-by-one you have to add the following topics:
 ``scan`` ``/map`` ``/plan`` ``/costmap/local_costmap/footprint`` ``/free_paths`` ``/local_path`` 
 
 for visualizing the axis of the robot and other frames:
 
-1. On the left "Display" pane, click on "add"
-2. Click on "by display type"
-3. select "axes"
-4. click on "ok"
+  1. On the left "Display" pane, click on "add"
+  2. Click on "by display type"
+  3. select "axes"
+  4. click on "ok"
 
 
 Once you are satisfied with the configuration, click on File > save config, so that you don't have to configure Rviz everytime you open it.
