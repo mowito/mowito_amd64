@@ -168,7 +168,7 @@ Step 0 : :ref:`SSH<ssh>` into the rosbot and on it source the workspace
 
     ``source ~/mowito_ws/devel/setup.bash``
 
-Step 1 : Launch the sim_mw_mapping node
+Step 1 : Launch the mw_mapping node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     1.  With Mowito Mapping (default)
 
@@ -287,7 +287,7 @@ Step 2 : Run the Mowito's Navigation Stack
 
       If you want to use the map created in the previous section use the following command
  
-      ``roslaunch mowito_rosbot sim_mw_navigation.launch map_path:=/home/husarion/mymap.yaml``
+      ``roslaunch mowito_rosbot run_mw_navigation.launch map_path:=/home/husarion/mymap.yaml``
 
 2. Cartographer based Localization 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
