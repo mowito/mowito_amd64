@@ -36,6 +36,8 @@ Mowito's Navigation Stack documentation
 
    config_pp
 
+   config_maxl
+   
    config_mission_executive
 
    rosbot_real
