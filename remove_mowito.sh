@@ -21,7 +21,7 @@ pkg_names=(
     utils
     mw-mapping
     chief-executive
-    costmap-2d
+    mw-costmap
     diagnostic
     roboview
     executive

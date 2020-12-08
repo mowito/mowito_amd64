@@ -18,11 +18,12 @@ echo "===================================="
 echo "Installing Dependencies"
 echo "===================================="
 
+# remove previous costmap
+sudo apt autoremove ros-${ros_version}-costmap-2d -y
 
 # installing the dependdencies
 sudo apt install ros-${ros_version}-voxel-grid -y
 sudo apt install ros-${ros_version}-openslam-gmapping -y
-sudo apt install ros-${ros_version}-voxel-grid -y
 sudo apt install ros-${ros_version}-joint-state-publisher -y
 sudo apt install ros-${ros_version}-joint-state-controller -y
 
