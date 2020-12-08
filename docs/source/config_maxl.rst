@@ -29,13 +29,11 @@ Robot Parameter Description
 +------------------------+------------+--------------------------------------------------------------------------------------+
 | scanTopic              | String     | The topic name which publishes the rpLidar sensor data                               |
 +------------------------+------------+--------------------------------------------------------------------------------------+
-| plot_path              | true/false | TO BE FILLED                                                                         |  
-+------------------------+------------+--------------------------------------------------------------------------------------+
 | pathFolder             | File path  | The relative path to the path folder                                                 |
 +------------------------+------------+--------------------------------------------------------------------------------------+
 | pathFile               | String     | The name of the path                                                                 |
 +------------------------+------------+--------------------------------------------------------------------------------------+
-| autonomyMode           | true/false | TO BE FILLED                                                                         | 
+| autonomyMode           | true/false | If true, calculates the relative goal for the robot to follow                        | 
 +------------------------+------------+--------------------------------------------------------------------------------------+
 | map_frame              | String     | Name of the map frame                                                                |
 +------------------------+------------+--------------------------------------------------------------------------------------+
@@ -65,19 +63,17 @@ Robot Parameter Description
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | max_lookahead                       | (Numeric) eg. 0.65     | The minimum lookahead on the global path for the robot                     |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| closest_point_index_search          | (Numeric) eg. 10       | TO BE FILLED                                                               |
+| closest_point_index_search          | (Numeric) eg. 10       | search for closest point index within this range of previous closest point |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| max_y_deviation                     | (Numeric) eg. 0.5      | TO BE FILLED                                                               |
+| min_radius                          | (Numeric) eg. 0.1      | minimum radius the robot can take from current to goal pose                |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| min_radius                          | (Numeric) eg. 0.1      | TO BE FILLED                                                               |
+| max_radius                          | (Numeric) eg. 1.0      | maximum radius the robot can take from current to goal pose                |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| max_radius                          | (Numeric) eg. 1.0      | TO BE FILLED                                                               |
+| max_omega_radius                    | (Numeric) eg. 1.0      | radius set when condition for straight line is satisfied                   |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| max_omega_radius                    | (Numeric) eg. 1.0      | TO BE FILLED                                                               |
+| max_y_deviation                     | (Numeric) eg. 0.5      | Maximum deviation in the lateral direction                                 |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| max_path_dev                        | (Numeric) eg. 1.0      | TO BE FILLED                                                               |
-+-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| lookahead_point_distance            | (Numeric) eg. 0.1      | TO BE FILLED                                                               |
+| lookahead_point_distance            | (Numeric) eg. 0.1      | used to find the point in the global path to follow                        |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 
 4. MaxL Parameters
@@ -91,9 +87,7 @@ Robot Parameter Description
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | max_yaw_rate                        | (Numeric) eg. 0.5      | Maximum yaw rate for the robot                                             |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| direction_weight                    | (Numeric) eg. 0.02     | TO BE FILLED                                                               |
-+-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| direction_threshold                 | (Numeric) eg. 120      | TO BE FILLED                                                               |
+| direction_threshold                 | (Numeric) eg. 120      | Direction threshold( in degrees) on either side of robot wrt relative goal |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | high_accuracy_multiplier            | (Numeric) eg. 0.4      | High accuracy multiplier for reaching the goal (0,1]                       |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
@@ -110,7 +104,7 @@ Robot Parameter Description
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | obstacle_horizon                    | (Numeric) eg. 3.5      | Parameter used for cropping the pointcloud                                 |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| min_path_range                      | (Numeric) eg. 1.0      | TO BE FILLED                                                               |
+| min_path_range                      | (Numeric) eg. 1.0      | Minimum path range for finding the path                                    |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | initial_path_scale                  | (Numeric) eg. 1.0      | Initial path scale value. Path Scales scale the paths and distances.       |
 |                                     |                        | Low pathScale means path elongation and vice-versa.                        |
