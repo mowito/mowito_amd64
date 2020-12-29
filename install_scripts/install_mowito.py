@@ -72,7 +72,7 @@ def main():
     success_msg = str(installed) + ' out of '+ str(len(pkg_list)-1)+' packages installed'
     print('\033[92m'+success_msg)
     subprocess.call(['notify-send','Mowito setup successful',success_msg])
-    print('\033[92m'+'Install successful')
+    print('\033[0m'+'Install successful')
 
 
 

@@ -36,7 +36,9 @@ echo "Installing Mowito packages"
 echo "===================================="
 
 
-sudo dpkg -i $CURR_DIR/debians/ros-${ros_version}-*.deb
+# sudo dpkg -i $CURR_DIR/debians/ros-${ros_version}-*.deb
+
+python3 ${CURR_DIR}/install_scripts/install_mowito.py ${ros_version} amd64
 
 # registering the user
 echo ""
