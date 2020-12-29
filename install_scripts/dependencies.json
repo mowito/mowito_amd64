@@ -1,0 +1,25 @@
+[
+ 
+   {
+      "package":"voxel-grid"
+   },
+   {
+      "package":"openslam-gmapping"
+   },
+   {
+      "package":"joint-state-publisher"
+   },
+   {
+      "package":"joint-state-controller"
+   },
+   {
+      "package":"behaviortree-cpp-v3"
+   },
+   {
+      "package":"teleop-twist-keyboard"
+   },
+   {
+      "package":"map-server"
+   }
+      
+]
