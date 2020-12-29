@@ -6,5 +6,3 @@
 
 example:
 `./install_mowito.py noetic amd64`
-
-- This script serves as a replacement only to the installation of debians in setup_mowito.sh (https://github.com/mowito/mowito_amd64/blob/6cd5b04ee05d2cdb2037152235964e67f488c24b/setup_mowito.sh#L40)
