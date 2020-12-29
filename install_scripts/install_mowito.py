@@ -5,11 +5,12 @@ import sys
 import subprocess
 import argparse
 import string
+import time
 
 def process_metadata(metadata):
     try:
         ros_version = metadata['ros-version']
-        ubuntu_version = metadata['ubuntu-version'] 
+        ubuntu_version = metadata['ubuntu-version']
         arch = metadata['arch']
 
         prefix = 'ros-' + ros_version + '-'
@@ -48,33 +49,47 @@ def main():
         raise ValueError('metadata not found!')
 
     installed = 0
+    subprocess.Popen(["tput","civis"])
     for item in pkg_list[1:]:
         deb_path = deb_folder + '/' + deb_prefix + item['package'] + '_' + item['version'] + '-' + deb_suffix
         if not os.path.exists(deb_path):
             print('\033[91m')
+            subprocess.Popen(["tput","cnorm"])
             raise Exception('Cannot find path:', deb_path)
         else:
-            print('\033[1m'+'\033[96m'+item['package'],' >> Installing')
+            start = time.time()
             proc = subprocess.Popen(["sudo","dpkg","-i",deb_path],stdin=subprocess.PIPE,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+            while (proc.poll() == None):
+                print('\r',item['package'],' >> Installing  ' , '[', '{0:.2f}'.format(time.time()-start), 's ]', end='', flush=True)
+
             output, err = proc.communicate()
+
             if(err.decode()):
-                print('\033[91m'+item['package'],' << Failed')
+                print('\033[91m'+'\n',item['package'],' << Failed')
                 error_msg = str(installed) + ' out of '+ str(len(pkg_list)-1)+' packages installed'
                 print(error_msg)
                 print('[ERROR]: ', err.decode())
                 print('Install unsuccessful')
                 subprocess.call(['notify-send','Mowito Setup Failed',error_msg])
+                subprocess.Popen(["tput","cnorm"])
                 sys.exit(1)
             else:
                 installed = installed + 1
-                print('\033[92m'+item['package'],' << Installed\n')
+                print('\033[1m'+'\033[92m'+'\n',item['package'],' << Installed')
+                print('\033[0m')
 
     success_msg = str(installed) + ' out of '+ str(len(pkg_list)-1)+' packages installed'
     print('\033[92m'+success_msg)
     subprocess.call(['notify-send','Mowito setup successful',success_msg])
     print('\033[0m'+'Install successful')
+    subprocess.Popen(["tput","cnorm"])
 
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        subprocess.Popen(["tput","cnorm"])
+        sys.exit(1)

@@ -40,6 +40,8 @@ echo "===================================="
 
 python3 ${CURR_DIR}/install_scripts/install_mowito.py ${ros_version} amd64
 
+
+
 # registering the user
 echo ""
 echo "=============================="
