@@ -21,7 +21,7 @@ def process_metadata(metadata):
     except:
         raise ValueError('metadata info not found!')
 
-def display_fail(error_string,package_name,num_installed,total,):
+def display_fail(error_string,package_name,num_installed,total):
     print('\033[1m'+'\033[91m'+'\n',package_name,' << Failed')
     error_msg = str(num_installed) + ' out of '+ str(total)+' packages installed\n'
     print(error_msg)
@@ -61,14 +61,12 @@ def main():
 
     subprocess.Popen(["tput","civis"])
 
-
+    #if skip dependecies is not true, install dependencies
     if (args.skip_depend != 'True'):
 
         # install dependencies from dependencies.json
         with open(install_script_dir+"/dependencies.json", "r") as read_file:
             dep_list = json.load(read_file)
-
-
 
         installed = 0
 
@@ -98,6 +96,9 @@ def main():
         print('\033[0m')
 
 
+    #Install mowito packages
+    display_fancy_msg('Install Mowito Packages')
+
     with open(install_script_dir+file_name, "r") as read_file:
         pkg_list = json.load(read_file)
 
@@ -108,9 +109,7 @@ def main():
     except:
         raise ValueError('metadata not found!')
 
-    display_fancy_msg('Install Mowito Packages')
-
-
+    
     installed = 0
     for item in pkg_list[1:]:
         deb_path = deb_folder + '/' + deb_prefix + item['package'] + '_' + item['version'] + '-' + deb_suffix
