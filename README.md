@@ -10,7 +10,7 @@
 
 ## Instructions for running setup_mowito.sh
 
-- Usage:
+### Usage:
 
 `setup_mowito.sh`  
 
@@ -20,13 +20,13 @@
 
 `setup_mowito.sh [rosversion] [arch-version] skip-depends`
 
-### Arguements
+### Arguments
 - `-h`          : Help, display usage
 - `rosversion`   : Version of ROS installed(noetic/melodic). Defaults to melodic if not specified
 - `arch-version` : Archtecture to be installed (amd64/arm64). Defaults to amd64 if not specified
 - `skip-depends` : Skip installing dependencies (optional). Installs dependencies if not specified
 
-## Example
+### Example
 ```
 ./setup_mowito.sh noetic amd64 
 ```
