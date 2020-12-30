@@ -77,8 +77,6 @@ def main():
             install_package = 'ros-'+args.rosversion+'-'+dep['package']
             # print("sudo "+dep['install']+" install "+install_package+" -y")
             proc = subprocess.Popen(["sudo","apt-get","install",install_package,"-y"],stdin=subprocess.PIPE,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            # output, err = proc.communicate()
-            # print(output)
             while (proc.poll() == None):
                 print('\r',dep['package'],' >> Installing  ' , '[', '{0:.2f}'.format(time.time()-start), 's ]', end='', flush=True)
 
