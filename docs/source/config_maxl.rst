@@ -136,23 +136,76 @@ Robot Parameter Description
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | lookahead_point_distance            | S.I (m)                | Used to find the point in the global path to follow                        |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
+| lookahead_factor_val                | (Numeric) eg. 0.088    | Controls the senstivity of movement of lookahead goal. Lower the value     |
+|                                     |                        | lower the change in the postion of lookahead goal.                         |
++-------------------------------------+------------------------+----------------------------------------------------------------------------+
+| lookahead_jump_threshold            | S.I (m)                | If the change in the position of lookahead goal is greater than this       |
+|                                     |                        | value, it would be considered a jump (oscillation)                         |
++-------------------------------------+------------------------+----------------------------------------------------------------------------+
 
 10. MaxL Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | Parameter                           | Units                  | Description                                                                |
 +=====================================+========================+============================================================================+
-| direction_threshold                 | (Numeric) eg. 120      | Direction threshold( in degrees) on either side of robot wrt relative goal |
+| direction_threshold                 | (Numeric) eg. 120      | The fan size (in degrees) on either side of robot wrt relative goal        |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | high_accuracy_multiplier            | (Numeric) eg. 0.4      | High accuracy multiplier for reaching the goal (0,1]                       |
-+-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| in_place_rotation_penalty           | (Numeric) eg. 0.05     | Scoring parameter. Higher value penalises in place rotation more           |
-+-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| goal_direction_preference           | (Numeric) eg. 0.2      | Scoring parameter. Higher value means controller prefers paths             |
-|                                     |                        | oriented towards the goal.                                                 |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | vis_pointcloud                      | true/false             | Parameter to enable visualisation of detailed data (pointcloud data)       |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | use_odom_velocity                   | true/false             | Parameter to take velocity from odom messages                              |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
+| reverse_enabled                     | true/false             | Parameter to enable reverse motion for the robot                           |
++-------------------------------------+------------------------+----------------------------------------------------------------------------+
+| truncated_fan_angle                 | (Numeric) eg. 10       | The fan size (in degrees) on either side of robot wrt relative goal when   |
+|                                     |                        | there is no obstacle detected by the robot                                 |
++-------------------------------------+------------------------+----------------------------------------------------------------------------+
 
+11. Parameters for Oscillation Detection by Path Index 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
+| Parameter                           | Units                  | Description                                                                          |
++=====================================+========================+======================================================================================+
+| oscillation_senstivity_index        | (Numeric) eg. 5        | Controls the senstivity of jump detection. If this value is high, only large changes |
+|                                     |                        | in the value of selected path index are considered an oscillation and vice-versa     |
++-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
+| oscillation_threshold               | (Numeric) eg. 10       | Every time an oscillation is detected, the oscillation count is increased by one. If |
+|                                     |                        | this oscillation counr exceeds this value, oscillations are considered true and not  |
+|                                     |                        | just an error in detection                                                           |
++-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
+| osc_det_by_score_path               | true/false             | A flag which gives user the choice to use this method of oscillation detection. If   |
+|                                     |                        | false, oscillation detection by this method will stop                                |
++-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
+
+12. Parameters for Oscillation Detection by Angular Velocity 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
+| Parameter                           | Units                  | Description                                                                          |
++=====================================+========================+======================================================================================+
+| osc_freq_period                     | S.I (s)                | The interval after which the change in angular velocity direction is compared and    |
+|                                     |                        | frequency is calculated                                                              |
++-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
+| osc_freq_threshold                  | (Numeric) eg. 3.5      | If the frequency of change in angular velocity direction per osc_freq_period is more |
+|                                     |                        | than this value, it is considered an oscillation                                     |
++-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
+| osc_det_by_ang_vel                  | true/false             | A flag which gives user the choice to use this method of oscillation detection. If   |
+|                                     |                        | false, oscillation detection by this method will stop                                |
++-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
+
+13. Scoring Parameters
+^^^^^^^^^^^^^^^^^^^^^^^^
++-------------------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| Parameter                           | Units                    | Description                                                                          |
++=====================================+==========================+======================================================================================+
+| scoring_algo_index                  | (Numeric) eg. 1          | This parameter decides which scoring algorithm will be used to score paths.          |
+|                                     |                          | Currently, we have 4 different scoring algoritms to chose from                       |
++-------------------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| scoring_algo_four_senstivity_factor | (Numeric) eg. 0          | This parameter is used only by scoring algo number four. It controls the amount of   |
+|                                     |                          | time for which oscillation mitiagtion will last. The larger the value, the longer    |
+|                                     |                          | the oscillation mitigation will work to remove oscillation                           |
++-------------------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| in_place_rotation_penalty           | (Numeric) eg. 0.05       | Higher value penalises in place rotation more                                        |
++-------------------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| goal_direction_preference           | (Numeric) eg. 0.2        | Higher value means controller prefers paths oriented towards the goal                |
++-------------------------------------+--------------------------+--------------------------------------------------------------------------------------+
