@@ -47,7 +47,7 @@ Robot Parameter Description
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | stop_yaw_gain                       | (Numeric) eg. 0.6      | Yaw gain used when robot is stopped/almost stopped                         |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| max_yaw_rate                        | (Numeric) eg. 0.5      | Maximum angular velocity for the robot                                     |
+| max_yaw_rate                        | S.I (rad/s)            | Maximum angular velocity for the robot                                     |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 
 4. Inflation
@@ -148,7 +148,7 @@ Robot Parameter Description
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | Parameter                           | Units                  | Description                                                                |
 +=====================================+========================+============================================================================+
-| direction_threshold                 | (Numeric) eg. 120      | The fan size (in degrees) on either side of robot wrt relative goal        |
+| direction_threshold                 | (degrees) eg. 120      | The fan size (in degrees) on either side of robot wrt relative goal        |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | high_accuracy_multiplier            | (Numeric) eg. 0.4      | High accuracy multiplier for reaching the goal (0,1]                       |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
@@ -158,7 +158,7 @@ Robot Parameter Description
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 | reverse_enabled                     | true/false             | Parameter to enable reverse motion for the robot                           |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
-| truncated_fan_angle                 | (Numeric) eg. 10       | The fan size (in degrees) on either side of robot wrt relative goal when   |
+| truncated_fan_angle                 | (degrees) eg. 10       | The fan size (in degrees) on either side of robot wrt relative goal when   |
 |                                     |                        | there is no obstacle detected by the robot                                 |
 +-------------------------------------+------------------------+----------------------------------------------------------------------------+
 
@@ -170,12 +170,12 @@ Robot Parameter Description
 | oscillation_senstivity_index        | (Numeric) eg. 5        | Controls the senstivity of jump detection. If this value is high, only large changes |
 |                                     |                        | in the value of selected path index are considered an oscillation and vice-versa     |
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
-| oscillation_threshold               | (Numeric) eg. 10       | Every time an oscillation is detected, the oscillation count is increased by one. If |
-|                                     |                        | this oscillation counr exceeds this value, oscillations are considered true and not  |
-|                                     |                        | just an error in detection                                                           |
+| oscillation_threshold               | (Numeric) eg. 10       | Minimum osciallations required to classiffy the beahvior as oscillatory              |
+|                                     |                        |                                                                                      |
+|                                     |                        |                                                                                      |
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
-| osc_det_by_score_path               | true/false             | A flag which gives user the choice to use this method of oscillation detection. If   |
-|                                     |                        | false, oscillation detection by this method will stop                                |
+| osc_det_by_score_path               | true/false             | Flag to switch on/off the critic/method of oscillation detectino by path index. If   |
+|                                     |                        | false, the above mentioned params would be rendered ineffective.                     |
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
 
 12. Parameters for Oscillation Detection by Angular Velocity 
@@ -183,8 +183,8 @@ Robot Parameter Description
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
 | Parameter                           | Units                  | Description                                                                          |
 +=====================================+========================+======================================================================================+
-| osc_freq_period                     | S.I (s)                | The interval after which the change in angular velocity direction is compared and    |
-|                                     |                        | frequency is calculated                                                              |
+| osc_freq_period                     | S.I (s)                | Time period for sampling the data                                               d    |
+|                                     |                        |                                                                                      |
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
 | osc_freq_threshold                  | (Numeric) eg. 3.5      | If the frequency of change in angular velocity direction per osc_freq_period is more |
 |                                     |                        | than this value, it is considered an oscillation                                     |
