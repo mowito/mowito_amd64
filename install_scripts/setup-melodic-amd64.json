@@ -19,10 +19,6 @@
       "version":"21.3.0"
    },
    {
-      "package":"behavior-tree",
-      "version":"20.6.0"
-   },
-   {
       "package":"diagnostic",
       "version":"0.0.0"
    },
