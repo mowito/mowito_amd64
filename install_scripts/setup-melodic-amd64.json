@@ -16,11 +16,7 @@
    },
    {
       "package":"mw-msgs",
-      "version":"20.6.0"
-   },
-   {
-      "package":"behavior-tree",
-      "version":"20.6.0"
+      "version":"21.3.0"
    },
    {
       "package":"diagnostic",
