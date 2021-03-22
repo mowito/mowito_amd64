@@ -32,10 +32,6 @@ Mowito's Navigation Stack documentation
 
    step_5
 
-   config_traj_planner
-
-   config_pp
-
    config_maxl
    
    config_mission_executive
