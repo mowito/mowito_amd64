@@ -5,32 +5,19 @@ Publishers
 ^^^^^^^^^^^^^^
 Below is the list of publishers in the Mowito Navigation Stack.
 
-
-**1. Command Velocity Publisher**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-      The command velocity of the robot is published over the ``/cmd_vel`` topic by the command velocity publisher.
-
-**2. Plan Publisher**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-     The path consisting of waypoints is published over the ``/plan`` topic by the plan publisher.
-
-
-**3. Route Marker Publisher**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-     The route markers for visualizing the route in Rviz are published over the ``/route`` topic by the route marker publisher.
-
-**4. Goal Queue Publisher**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-      The goal queue publisher publishes over the ``/goal_queue`` topic for vizualizing the goal queue in Rviz.
-
-**5. Mission Executive Status Publisher**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-     The mission status of the robot  is published over the ``/mission_status`` topic by the mission executive status publisher.
++------------------------------------+---------------------+-------------------------------------------------------------------------------------+
+| Topic name                         | address             | description                                                                         |
++------------------------------------+---------------------+-------------------------------------------------------------------------------------+
+| Command Velocity Publisher         | ``/cmd_vel``        | it contains the linear and angular velocity which the robot should follow.          |
++------------------------------------+---------------------+-------------------------------------------------------------------------------------+
+| Plan Publisher                     | ``/plan``           | it contains the global path/plan which the robot will follow                        |
++------------------------------------+---------------------+-------------------------------------------------------------------------------------+
+| Goal Queue Publisher               | ``/goal_queue``     | Publishes all the goals in the queue                                                |
++------------------------------------+---------------------+-------------------------------------------------------------------------------------+
+| Odometry                           | ``/odom``           | Contains the odometry of the robot. It is used as **input** by the Navigation Stack |
++------------------------------------+---------------------+-------------------------------------------------------------------------------------+
+| Mission Executive Status Publisher | ``/mission_status`` | Contains the navigation status of the robot.                                        |
++------------------------------------+---------------------+-------------------------------------------------------------------------------------+
 
 Service Calls
 ^^^^^^^^^^^^^^^
