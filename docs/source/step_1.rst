@@ -8,13 +8,13 @@ For Simulation
 
 Mowito provide packages for the simulation of following robots:
 
-1) ROSbot
+1) ROSbot (Melodic and Noetic)
 
-2) TurtleBot
+2) TurtleBot (Melodic)
 
-3) Husky
-
-4) Jackal
+3) Husky (Melodic)
+ 
+4) Jackal (Melodic)
 
 ----------------------------
 For Real Robot testing

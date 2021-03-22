@@ -17,6 +17,7 @@ Step 1 : Cloning the chosen bot in the mowito_ws (the one you setup during insta
 **For ROSBot, run the following command**
 
     ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mowito_rosbot.git``
+    ``cd ~/mowito_ws/src/ && git clone https://github.com/mowito/mw_mprims.git``
 
 
 **For TurtleBot, run the following command**

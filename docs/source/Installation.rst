@@ -43,11 +43,11 @@ Software Requirements
 
 **Operating System**
 
-	Ubuntu 16.04 or higher
+	Ubuntu 18.04 or higher
 
 **Mandatory tools**
 
-	Robot Operating System (ROS) Kinetic or Melodic
+	Robot Operating System (ROS) Melodic of Noetic
 
 
 ----------------------------------------------
@@ -78,9 +78,6 @@ Installing the Mowito on Computer ( amd64 or x86)
 
 	``git clone -b melodic https://github.com/mowito/mowito_amd64.git`` \
 
-	for Ubuntu 16 - ROS Kinetic
-
-	``git clone -b kinetic https://github.com/mowito/mowito_amd64.git``\ 
 
 3. Remove any previous installation of Mowito stack 
 
@@ -90,9 +87,6 @@ Installing the Mowito on Computer ( amd64 or x86)
 
 	``./remove_mowito.sh melodic``
 
-	for Ubuntu 16 - ROS Kinetic
-
-	``./remove_mowito.sh kinetic``
 
 4. Install the new Mowito stack 
 
@@ -100,9 +94,6 @@ Installing the Mowito on Computer ( amd64 or x86)
 
  	``./setup_mowito.sh melodic``\
 
- 	for Ubuntu 16 - ROS Kinetic
-
- 	``./setup_mowito.sh kinetic``\
 
 
 Installing the Mowito on the Robot -ROSbot  ( arm64, armhf)

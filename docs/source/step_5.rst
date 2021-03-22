@@ -17,10 +17,8 @@ The following pages will get into more details about different config files, and
 
 We will be focussing on configuring:
 
-1. Controller - MaxL Controller
-2. Controller - :ref:`Trajectory Planner<traj_planner>`
-3. Cotnroller - :ref:`Pure Pursuit<pp>`
-4. :ref:`Mission Executive<mission_executive>`
-5. Costmap
+1. Controller - :ref: `MaxL Controller<maxl_planner>`
+2. :ref:`Mission Executive<mission_executive>`
+3. Costmap
 
 
