@@ -167,12 +167,12 @@ Robot Parameter Description
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
 | Parameter                           | Units                  | Description                                                                          |
 +=====================================+========================+======================================================================================+
-| oscillation_senstivity_index        | (Numeric) eg. 5        | Controls the senstivity of jump detection. If this value is high, only large changes |
+| pi_osc_senstivity                   | (Numeric) eg. 5        | Controls the senstivity of jump detection. If this value is high, even small changes |
 |                                     |                        | in the value of selected path index are considered an oscillation and vice-versa     |
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
-| oscillation_threshold               | (Numeric) eg. 10       | Minimum osciallations required to classiffy the beahvior as oscillatory              |
-|                                     |                        |                                                                                      |
-|                                     |                        |                                                                                      |
+| pi_osc_threshold                    | (Numeric) eg. 10       | Everytime an oscillation is detected, a count is increased. If this count goes       |
+|                                     |                        | above this threshold, oscillations are considered true and not just an error in      |
+|                                     |                        | detection                                                                            |
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
 | osc_det_by_score_path               | true/false             | Flag to switch on/off the critic/method of oscillation detectino by path index. If   |
 |                                     |                        | false, the above mentioned params would be rendered ineffective.                     |
@@ -183,11 +183,11 @@ Robot Parameter Description
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
 | Parameter                           | Units                  | Description                                                                          |
 +=====================================+========================+======================================================================================+
-| osc_freq_period                     | S.I (s)                | Time period for sampling the data                                               d    |
+| av_osc_sample_window                | S.I (s)                | Time period/window over which frequency of oscillation is calculated                 |
 |                                     |                        |                                                                                      |
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
-| osc_freq_threshold                  | (Numeric) eg. 3.5      | If the frequency of change in angular velocity direction per osc_freq_period is more |
-|                                     |                        | than this value, it is considered an oscillation                                     |
+| av_osc_freq_threshold               | (Numeric) eg. 3.5      | If the frequency of change in angular velocity direction per av_osc_sample_window    |
+|                                     |                        | is more than this value, it is considered an oscillation                             |
 +-------------------------------------+------------------------+--------------------------------------------------------------------------------------+
 | osc_det_by_ang_vel                  | true/false             | A flag which gives user the choice to use this method of oscillation detection. If   |
 |                                     |                        | false, oscillation detection by this method will stop                                |

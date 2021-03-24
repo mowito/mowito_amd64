@@ -51,3 +51,8 @@ In order to make a service call, on terminal (after sourcing ROS) do ``rosservic
 +-----------------------+-----------------------------------------------+-------------------------------------------------------------------------------------------------+
 | Trigger Recovery      | ``/mission_executive/trigger_recovery``       | triggers the robot into recovery mode                                                           |
 +-----------------------+-----------------------------------------------+-------------------------------------------------------------------------------------------------+
+| Set Manual Override   | ``/mission_executive/set_manual_overrride``   | It lets the user take over the executive giving user complete control over the movement the     | 
+|                       |                                               | robot. In Manual mode, the executive will not publish command velocities. The executive will    | 
+|                       |                                               | also not accept any goals, routes or plans until this service is called again and manual_mode   | 
+|                       |                                               | is set to false                                                                                 | 
++-----------------------+-----------------------------------------------+-------------------------------------------------------------------------------------------------+
