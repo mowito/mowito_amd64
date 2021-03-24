@@ -4,8 +4,8 @@ Interfaces
 ROS-Topics
 ^^^^^^^^^^^^^^
 Below is the list of ROStopics in the Mowito Navigation Stack. In order to check the data from any of the topics below, on terminal
-- source ROS ``source /opt/ros/<your ros version>/setup.bash``
-- ``rostopic echo <ros topic name>``
+1. source ROS ``source /opt/ros/<your ros version>/setup.bash``
+2. ``rostopic echo <ros topic name>``
 
 +------------------------------------+---------------------+-------------------------------------------------------------------------------------+
 | Topic name                         | address             | description                                                                         |
