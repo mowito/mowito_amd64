@@ -66,7 +66,7 @@ Setting the motion primitive parameters to generate the motion primitives
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Inorder to generate the motion primitives, certain parameters are required to be set. The parameters that are required to be set by the user are :
 
-1. Distance
+1. Path Distance or simply Distance
 2. Search Radius
 
 The aforementioned parameters are the **ONLY TWO PARAMETERS** that the **USER MUST SET**.
@@ -74,7 +74,7 @@ Tampering any other parameter shall generate wrong motion primitives.
 
 The details of the two parameters are as follows :
 
-1. Distance
+1. Path Distance
 ~~~~~~~~~~~~
 
 The distance basically indicates the length  of the motion primitives from the center of the robot. The following diagram gives an illustration of the path distance.
