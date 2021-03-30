@@ -55,7 +55,7 @@ Accessing the motion primitives generator web tool
 
 The motion primitives are generated using a web tool developed by Mowito. So inoder to generate the motion primitives, the user must access the web tool.
 
-[Here is the link to the web tool](http://ec2-15-207-68-243.ap-south-1.compute.amazonaws.com/)
+`Here is the link to the web tool <http://ec2-15-207-68-243.ap-south-1.compute.amazonaws.com/>`_
 
 Upon accessing the web tool, the user will land onto the following page : 
 
