@@ -11,8 +11,14 @@ Setup for Simulation
 
 There are 3 steps to setup the chosen bot for simulation purposes
 
+
+.. rst-class:: content-collapse
+
 Step 1 : Cloning the chosen bot in the mowito_ws (the one you setup during installation)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===========================================================================================
+
+.. Step 1 : Cloning the chosen bot in the mowito_ws (the one you setup during installation)
+.. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **For ROSBot, run the following command**
 

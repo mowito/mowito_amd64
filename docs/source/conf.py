@@ -41,7 +41,11 @@ release = u'0.0.1'
 extensions = [
     "sphinx_rtd_theme",
     'sphinx.ext.autodoc',
-]
+    'breathe', 
+    'sphinx.ext.graphviz', 
+    'sphinxcontrib.plantuml', 
+    'sphinx.ext.extlinks'
+    ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -65,10 +69,10 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['_build','_themes','scripts' ]
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = None
+pygments_style = 'sphinx'
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -76,7 +80,10 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_rtd_theme"
+# html_theme = "sphinx_rtd_theme"
+html_theme = 'otc_tcs_sphinx_theme'
+# html_theme_path = ['_themes']
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -88,10 +95,11 @@ html_theme_options = {
     'navigation_depth': 5,
 }
 html_logo = "Images/logo/mowito_icon.png"
+html_favicon = "Images/logo/mowito_icon.png"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+# html_static_path = ['_static']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -107,7 +115,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'SimulatingMowitoRosbotdoc'
+htmlhelp_basename = 'MowitoDoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -176,7 +184,7 @@ epub_title = project
 # epub_uid = ''
 
 # A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
+epub_exclude_files = ['mowitosearch.html']
 
 
 # -- Extension configuration -------------------------------------------------
