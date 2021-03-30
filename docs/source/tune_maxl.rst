@@ -122,6 +122,8 @@ the web tool will display the motion primitives and will display the paths gener
 A general convention to name the motion primitive file is given below
 
 **mw_mprim_dxdd_rxrr**
+
+
 d = path distance 
 r = search radius
 
