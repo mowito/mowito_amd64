@@ -41,9 +41,7 @@ release = u'0.0.1'
 extensions = [
     "sphinx_rtd_theme",
     'sphinx.ext.autodoc',
-    'breathe', 
     'sphinx.ext.graphviz', 
-    'sphinxcontrib.plantuml', 
     'sphinx.ext.extlinks'
     ]
 
@@ -82,8 +80,8 @@ pygments_style = 'sphinx'
 #
 # html_theme = "sphinx_rtd_theme"
 html_theme = 'otc_tcs_sphinx_theme'
-# html_theme_path = ['_themes']
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_theme_path = ['_themes']
+# html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
