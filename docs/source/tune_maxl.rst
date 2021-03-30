@@ -15,16 +15,20 @@ The MaxL controller is a proprietary state of the art control and obstacle avoid
 
 The following flow chart shall highlight the steps to follow for tuning the MaxL controller.
 
+.. image:: Images/maxl/stages.png
+   :align: center
 
 The process of tuning the controller involves two major steps :
 
 Step 1 : Generating the motion primitives
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generating the Motion primitives involves generating a set of paths the robot can take during the robot motion. These set of paths are critical and depend on the robot dimensions. This is generally a one time step. 
 
 However, any change in the robot dimensions will require motion primitives to be regenerated.
 
 Step 2 : Tuning the MaxL Parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tuning the MaxL Parameters involves setting the MaxL parameters in the mw_maxl_planner.yaml file which is generally located in the controller_config folder in your repository. The values in this file can be modified based on the desired robot motion and can be set as many times until the desired robot motion is achieved. 
 
@@ -55,6 +59,8 @@ The motion primitives are generated using a web tool developed by Mowito. So ino
 
 Upon accessing the web tool, the user will land onto the following page : 
 
+.. image:: Images/maxl/mprim_generator.png
+   :align: center
 
 Setting the motion primitive parameters to generate the motion primitives
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,6 +79,8 @@ The details of the two parameters are as follows :
 
 The distance basically indicates the length  of the motion primitives from the center of the robot. The following diagram gives an illustration of the path distance.
 
+.. image:: Images/maxl/robot_mprim.png
+   :align: center
 
 The path distance value shall remain within the following bounds : 
 Minimum path distance : (Robot Length)/2 
@@ -83,6 +91,9 @@ Maximum path distance : obstacle horizon distance (shall be explained in section
 
 The search radius for the motion primitives shall be set a value equal to the radius of the circle that encircles the robot. The search radius parameter is illustrated in the following diagram. 
 
+.. image:: Images/maxl/search_radius.png
+   :align: center
+
 Basically a higher search radius will provide a greater safety shield around the robot while the algorithm selects a path. However, a higher search radius will also lead to lesser free paths being available when the robot is confronted by an obstacle. 
 
 Thus it would be wise and apt to set the search radius to a value = radius of the circle encircling the robot.
@@ -91,19 +102,26 @@ Thus it would be wise and apt to set the search radius to a value = radius of th
 Hit the Submit button 
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. image:: Images/maxl/submit_button.png
+   :align: center
+
 The motion primitives will begin generation and a progress bar is displayed to track it
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. image:: Images/maxl/progress.png
+   :align: center
 
 After completion
 ^^^^^^^^^^^^^^^^^
 the web tool will display the motion primitives and will display the paths generated. Further the tool will prompt the user to enter the name for the paths that are generated
 
 
+.. image:: Images/maxl/filename.png
+   :align: center
 
 A general convention to name the motion primitive file is given below
 
-mw_mprim_dxdd_rxrr
+**mw_mprim_dxdd_rxrr**
 d = path distance 
 r = search radius
 
@@ -310,4 +328,4 @@ Nominal value : 1.5 m
 
 It is advisable to have this parameter to be set to a higher value inorder to have a smother robot motion.
 
-Further, it is MANDATORY to have the obstacle_horizon value to be greater than the path distance of the motion primitives.
+Further, it is **MANDATORY** to have the obstacle_horizon value **to be greater** than the **path distance of the motion primitives**.
