@@ -155,23 +155,20 @@ The following image shows the mw_maxl_planner.yml file and the parameters availa
 
 The following are the **ONLY** parameters that the user **MUST MODIFY OR TUNE**. Please **DO NOT MODIFY ANY OTHER PARAMETERS IN THE FILE**.
 
-Sl. No.
-Parameter
+
 1 pathFolder
 2 maxSpeed
 3 maxAccel
 4 min_lookahead
 5 max_lookahead
-6 lookahead_factor_val
-7 lookahead_jump_threshold
-8 vehicleLength
-9 vehicleWidth
-10 max_yaw_rate
-11 in_place_rotation_penalty
-12 goal_direction_preference
-13 x_inflate
-14 y_inflate
-15 obstacle_horizon
+6 vehicleLength
+7 vehicleWidth
+8 max_yaw_rate
+9 in_place_rotation_penalty
+10 goal_direction_preference
+11 x_inflate
+12 y_inflate
+13 obstacle_horizon
 
   
 The description and significance of these parameters is given below :
@@ -230,26 +227,6 @@ However, in smaller floor spaces where the dimensions of the floor space are les
 
 More specifically, it is advised to have a smaller max_lookahead value for robots attempting to travel through constrained door passages.
 
-lookahead_factor_val:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This parameter specifies the factor by which the lookahead goal will be incremented. 
-
-Nominal value : - 0.088
-
-The robot follows the lookahead goal. This param helps to avoid large fluctuations/jumps in the movement of the lookahead goal.
-
-If the value of this param is decreased, the lookahead goal’s movement on the global path will reduce and vice-versa. Generally it is advisable to keep a low value as this ensures smooth movement of the lookahead goal on the global path as it approaches the final pose.
-
-lookahead_jump_threshold:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This parameter defines the value of fluctuation/jump in lookahead goal. That is, as the lookahead goal changes, what value of change in the lookahead goal can be considered as a fluctuation/jump. 
-
-Units : m
-Nominal value : - 0.05
-
-Generally it is advised to keep a low value as this ensures smoother movement of lookahead goal on the global path
 
 vehicleLength:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
