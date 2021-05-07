@@ -4,3 +4,7 @@ docs/build/
 .vscode/
 docs/source/_build
 .DS_Store
+log/COLCON_IGNORE
+log/latest
+log/latest_list
+log/list_2021-05-07_18-24-51/logger_all.log
