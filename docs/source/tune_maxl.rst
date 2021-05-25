@@ -1,7 +1,6 @@
 ==============================================
 MaxL Controller Tuning Guide
 ==============================================
-
 This is a guide that will describe the steps to tune the MaxL controller for any deployment of the Mowito Navigation Stack. This guide shall provide all the parameters that are required to be tuned, their significance and description of what the parameters mean. 
 
 This guide is typically meant for the end users who will be using the Mowito Navigation stack and have deployed the navigation stack on their respective hardware. This guide will only address the controller and obstacle avoidance functionality of the Mowito Navigation Stack.
@@ -20,26 +19,11 @@ The following flow chart shall highlight the steps to follow for tuning the MaxL
 
 The process of tuning the controller involves two major steps :
 
-Step 1 : Generating the motion primitives
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Generating the Motion primitives involves generating a set of paths the robot can take during the robot motion. These set of paths are critical and depend on the robot dimensions. This is generally a one time step. 
-
-However, any change in the robot dimensions will require motion primitives to be regenerated.
-
-Step 2 : Tuning the MaxL Parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Tuning the MaxL Parameters involves setting the MaxL parameters in the mw_maxl_planner.yaml file which is generally located in the controller_config folder in your repository. The values in this file can be modified based on the desired robot motion and can be set as many times until the desired robot motion is achieved. 
-
-Section 3 shall describe the method to generate the motion primitives and Section 4 shall describe the methods to tune the MaxL parameters located in the mw_maxl_planner.yml file. 
-
-
 ----------------------------------------------------------
 Step 1 : Generating Motion Primitives for the Controller
 ----------------------------------------------------------
 
-As stated in section 2, the Motion Primitives are a set of precomputed paths that the robot can take while the robot is in motion. Whenever an obstacle confronts the robot, some of the precomputed paths are blocked and the controller chooses a path from the set of paths that are not blocked. 
+The Motion Primitives are a set of precomputed paths that the robot can take while the robot is in motion. Whenever an obstacle confronts the robot, some of the precomputed paths are blocked and the controller chooses a path from the set of paths that are not blocked. 
 
 While tuning the controller generation of these precomputed paths is a mandatory first step. To generate the motion primitives, the following information is required :
 
@@ -144,167 +128,37 @@ Uncompress the downloaded folder and place it in the active working directory in
 Step 2 : Configuring the MaxL parameters
 --------------------------------------------
 
-The MaxL parameters are the parameters that help the algorithm decide what path to select during the robot motion when confronted by an obstacle and otherwise. This section shall describe all the parameters that the user must configure and will provide a description of these parameters and significance of these parameters.
+The MaxL parameters are the parameters that help the algorithm decide what path to select during the robot motion when confronted by an obstacle and otherwise. There are four categories of MaxL parameters that the users can configure based on various condition. 
 
-The parameters are present in the mw_maxl_planner.yml file which is located in the controller_config folder.
+The parameters can be editted using the mw_maxl_planner.yml file which is located in the controller_config folder.
 
-The following image shows the mw_maxl_planner.yml file and the parameters available. 
 
+Parameters influneced by Bot architecture:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* **vehicleLength** : Specifies the robot length. Unit : m
+* **vehicleWidth** : Specifies the robot width. Unit : m
+* **maxSpeed** : Specifies the maximum speed the robot can operate at. Unit : m/s
+* **maxAccel** : Specifies the maximum acceleration the robot can operate at. Unit : m/s\ :sup:`2`
+* **min_lookahead** : Specifies the minimum lookahead point the robot must reach on the global path when the robot is in motion. Unit : m. Nominal value : (Robot length / 2) * 1.1 
+* **in_place_rotation_penalty** : This parameter specifies the weight factor to be used while scoring the different free paths available when the robot is confronted by an obstacle. The influence of this parameter on a ROSbot doing a 360\ :sup:`0` U-turn can be observed below.
 
+.. image:: Images/maxl/in_place_rotation_penalty.gif
+   :align: center
+   :width: 600
 
 
-The following are the **ONLY** parameters that the user **MUST MODIFY OR TUNE**. Please **DO NOT MODIFY ANY OTHER PARAMETERS IN THE FILE**.
 
+Parameters influneced by environment and trajectories:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* **pathFolder** : Specifies the path for the motion primitives folder where path files are located.
+* **max_lookahead** : specifies the maximum lookahead point the robot must reach on the global path when the robot is in motion . Unit : m
+* **max_yaw_rate** : Specifies speed at which the robot performs on spot turn. Unit : rad/s
+* **yaw_gain** : Related to rotation of robot while in motion. Following plot shows performance of a ROSbot (time took to complete) on a given trajectory with different turn radii. 
+.. image:: Images/maxl/yaw_gain.png
+   :align: center
+* **goal_direction_preference** : Weight factor to be used while scoring the different free paths available when the robot is confronted by an obstacle. In cluttered environment it is recommended to have lower values. Nominal value : 0.8
+* **obstacle_horizon** : specifies the distance to which the robot must look inorder to detect an obstacle. Units : m Nominal value : 1.5 m. There is a constraint on this parameter as follows.It should be greater than path distance of the motion primitives.
 
-1 pathFolder
-2 maxSpeed
-3 maxAccel
-4 min_lookahead
-5 max_lookahead
-6 vehicleLength
-7 vehicleWidth
-8 max_yaw_rate
-9 in_place_rotation_penalty
-10 goal_direction_preference
-11 x_inflate
-12 y_inflate
-13 obstacle_horizon
 
-  
-The description and significance of these parameters is given below :
 
-pathFolder:
-^^^^^^^^^^^^^
-
-This parameter specifies the path for the motion primitives folder where path files are located.
-
-maxSpeed:
-^^^^^^^^^^^^^
-
-This parameter specifies the maximum speed the robot can operate at. 
-
-Units                : m/s 
-Nominal Value : 2 m/s
-
-Typically a higher speed would help achieve the robot reach the target point faster. On the flipside, a higher speed can induce a higher load on the motor in stopping the robot. Set this value asper the stopping capabilities of the motor in use and loads the motor can handle.
- 
-maxAccel:
-^^^^^^^^^^^^^
-This parameter specifies the maximum acceleration the robot can operate at.
-
-Units                : m/s2
-Nominal Value : 0.5 m/s2
-
-Typically a high acceleration value can lead to a jerky motion and can stress the motor operating the robot. Hence it is advised to have the acceleration values set on the lower side. Preferably the acceleration values can range anywhere between 0.5 m/s2 and 1.5 m/s2. 
-
-min_lookahead:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-This parameter specifies the minimum lookahead point the robot must reach on the global path when the robot is in motion .
-
-Units : m
-Nominal value : (Robot length / 2) * 1.1
-
-Typically this parameter provides the smallest lookahead target the robot must achieve on the global path during the robot motion. The actual lookahead point shall be a value that would be within the bounds of the min_lookahead and the max_lookahead.
-
-
-
-max_lookahead:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This parameter specifies the maximum lookahead point the robot must reach on the global path when the robot is in motion .
-
-Units : m
-Nominal value : -
-
-Typically this parameter provides the farthest lookahead target the robot must achieve on the global path during the robot motion. The actual lookahead point shall be a value that would be within the bounds of the min_lookahead and the max_lookahead.
-
-It is generally advisable to have the min_lookahead fixed and vary the max_lookahead to achieve the desired motion.
-
-Generally the user is advised to set a larger max_lookahead value in floorspaces where the floor space is large and has dimensions greater than the max range of the LiDAR being used.
-Thus, having a robot with a higher max_lookahead in larger floor spaces will generate a smoother motion than a robot with smaller max_lookahead value.
-
-However, in smaller floor spaces where the dimensions of the floor space are less than the max range of the LiDAR being used, it is advisable to have a smaller max_lookahead value and the max_lookahead in such cases can be set to the path distance parameter value specified while generating the motion primitives.
-
-More specifically, it is advised to have a smaller max_lookahead value for robots attempting to travel through constrained door passages.
-
-
-vehicleLength:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This parameter specifies the robot length. 
-
-Unit : m 
-
-vehicleWidth:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This parameter specifies the robot width. 
-
-Unit : m
-
-The robot length and width must be calculated taking into account all the auxiliary devices connected to the robot that are protruding outside the robot chassis.
-
-The following diagram illustrates the calculation of the robot length and width.
-
-
-
-max_yaw_rate:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This parameter specifies speed at which the robot performs on spot turn. 
-
-Units : rad/s
-
-Nominal value : 0.5
-
-Generally, it is advisable to have a low max_yaw_rate as the robot, during the path selection when confronted by an obstacle will react slower to the MaxL algorithm when the algorithm is oscillating between potential paths. This can significantly reduce the odometry and localization errors that are caused by aggressive robot oscillations.
-
-in_place_rotation_penalty
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-This parameter specifies the weight factor to be used while scoring the different free paths available when the robot is confronted by an obstacle.
-
-Setting a high value for this parameter reduces the in place rotations of the robot and prevents the robot from oscillating when confronted by obstacles.
-
-Nominal Value : 2.15
-
-
-
-goal_direction_preference
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This parameter specifies the weight factor to be used while scoring the different free paths available when the robot is confronted by an obstacle.
-
-Setting a high value to this parameter shall set the robot to choose a path closer to the tager goal point. 
-
-Nominal value : 0.8
-
-It is generally advisable to have a lower goal_direction_preference value in cluttered environments. This allows the robot to choose paths farther from the goal and still be successful in reaching the target goal point. A higher goal_direction_preference in a cluttered environment will prevent the robot from taking a father path and would lead to the robot not being able to reach the target goalpoint.
-
-x_inflate
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-This parameter specifies the inflation around the obstacle in the longitudinal direction.
-
-Basically this parameter specifies the region of influence the obstacle has for the robot to compute its local path.
-
-Units                :   m
-Nominal value  :  0.1 m
-
-y_inflate
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-This parameter specifies the inflation around the obstacle in the lateral direction.
-
-Basically this parameter specifies the region of influence the obstacle has for the robot to compute its local path.
-
-Units                :   m
-Nominal value  :  0.1 m
-
-obstacle_horizon
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-This parameter specifies the distance to which the robot must look inorder to detect an obstacle.
-
-Units                : m
-Nominal value : 1.5 m
-
-It is advisable to have this parameter to be set to a higher value inorder to have a smother robot motion.
-
-Further, it is **MANDATORY** to have the obstacle_horizon value **to be greater** than the **path distance of the motion primitives**.
+Users **should only** change the above mentioned parameters and **should not** change any other parameter values in the mw_maxl_planner.yml file
