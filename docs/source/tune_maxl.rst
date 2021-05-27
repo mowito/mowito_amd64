@@ -140,9 +140,8 @@ Parameters influneced by Bot architecture:
 * **maxSpeed** : Specifies the maximum speed the robot can operate at. Unit : m/s
 * **maxAccel** : Specifies the maximum acceleration the robot can operate at. Unit : m/s\ :sup:`2`
 * **min_lookahead** : Specifies the minimum lookahead point the robot must reach on the global path when the robot is in motion. Unit : m. Nominal value : (Robot length / 2) * 1.1 
-* **in_place_rotation_penalty** : This parameter specifies the weight factor to be used while scoring the different free paths available when the robot is confronted by an obstacle. The influence of this parameter on a ROSbot doing a 360\ :sup:`0` U-turn can be observed below.
-
-.. image:: Images/maxl/in_place_rotation_penalty.gif
+* **in_place_rotation_penalty** : This parameter specifies the weight factor to be used while scoring the different free paths available when the robot is confronted by an obstacle. The following plot shows yaw angle Vs time, of a ROSbot when executing a 360\ :sup:`0` U-turn with various values of in_place_rotation_penalty
+.. image:: Images/maxl/in_place_rotation_penalty_plot.png
    :align: center
    :width: 600
 
