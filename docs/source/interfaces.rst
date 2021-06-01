@@ -56,3 +56,6 @@ In order to make a service call, on terminal (after sourcing ROS) do ``rosservic
 |                       |                                               | also not accept any goals, routes or plans until this service is called again and manual_mode   | 
 |                       |                                               | is set to false                                                                                 | 
 +-----------------------+-----------------------------------------------+-------------------------------------------------------------------------------------------------+
+| Change primitives     | ``/mw_maxl_planner/change_mprims``            | It allows you to change motion primitives at runtime.For service call mention path to   motion  |
+|                       |                                               | primitive's Files you would like to change to as argument as an argument to service             | 
++-----------------------+-----------------------------------------------+-------------------------------------------------------------------------------------------------+
