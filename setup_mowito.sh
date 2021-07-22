@@ -25,7 +25,7 @@ fi
 if [ $# -eq 0 ]
   then
     echo "defaulting the ros version to melodic and arch to amd64"
-    ros_version=melodic
+    ros_version=noetic
     arch_version=amd64
 fi
 
