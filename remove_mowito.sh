@@ -5,7 +5,7 @@ ros_version=$1
 if [ $# -eq 0 ]
   then
     echo "defualting the ros version to melodic"
-    ros_version=melodic
+    ros_version=noetic
 fi
 
 echo "===================================="
