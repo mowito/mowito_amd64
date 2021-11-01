@@ -159,5 +159,49 @@ Parameters influneced by environment and trajectories:
 * **obstacle_horizon** : specifies the distance to which the robot must look inorder to detect an obstacle. Units : m Nominal value : 1.5 m. There is a constraint on this parameter as follows.It should be greater than path distance of the motion primitives.
 
 
+Parameters For tuning Oscillations:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* **osc_det_by_path_index** :<value in boolean> if set true then oscillation detects by checking jump in the path, and below parameters are activated, if this parameter is false then below parameters have no effects.
+   * **pi_osc_senstivity** : <value> controls the sensitivity of oscillation. If this value is high, even small jumps in chosen path will be considered an oscillation
+   * **pi_osc_threshold** : <int value> Every Time an oscillation is detected, a count is increased, if this count goes above this threshold, oscillations are considered true and not just an error in detection
+* **osc_det_by_angular_velocity** :<boolean> if true, oscillations will be detected by checking the frequency of change in ang_vel direction
+   * **av_osc_sample_window** : <float> default value is  1.0 time period/window over which frequency of oscillation is calculated
+   * **av_osc_freq_threshold** : <float value> if the frequency of change in oscillation magnitude per av_osc_sample_window is more than this value, it is considered an oscillation
+* **pathFolder path for the set of path search config files**
+   * **For example shown below will find the the package called mw_mprims, navigates to path folder and parameters will be loaded from mw_mprims_1x0_0x9
+   * **Note** : in the above file 1x0 is 1.0m path length and 0x9 is 0.9m search_radius from the center of the robot
+
+   * **Note** : paths folder located in mw_mprims package
+
+
+Adjusting motion of the robot:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* **Speed** : will take the value between 0 to 1, where 0 will stop the robot and 1 will be the maximum speed controller can provide.
+* **Acceleration** : how quickly the robot will come into motion. Decreasing the value makes the robot smoother.. Can be adjusted as per the requirements 
+   * **maxSpeed** : 1.5
+   * **maxAccel** : 0.5
+* **Look ahead point distance** : robot local vision area, in which robot keeps an eye for any obstacle in its path, this parameter needs to be tuned carefully as increasing this value may make the robot come very much near to the obstacle.
+   * **lookahead_point_distance** : 0.4
+
+* **Yaw_gain** : this gain helps the robot to rotate while the robot is in motion. 
+* **Stop_yaw_gain** : yaw gain used when robot is stopped/almost stopped
+* **Max_yaw_rate** : robot will make smoother rotation if value is lower and make faster turn if higher value. Takes the value between 0 to 1
+   
+   * **yaw_gain** : 1 # yaw gain used when robot is in motion
+   * **stop_yaw_gain** : 0.6 # yaw gain used when robot is stopped/almost stopped
+   * **max_yaw_rate** : 0.2 # maximum yaw rate for the robot
+
+* **obstacle_horizon** : distance at which the robot will consider obstacle. For example 
+   * **obstacle_horizon** : 2.0
+In the above case if the object is within 2 m from the center of the robot then it will be considered as an obstacle.
+* **reverse_enabled** : if set true robot will plan reverse direction, but goal should be within localcast rolling window area
+   * **reverse_enabled** : false
+
+Below image shown is local_costmap config file, so based on below setup, if reverse is enabled and if the goal is within 3m then robot plans reverse motion.
+
+.. image:: Images/maxl/rolling_window.png
+   :align: center
+
+
 
 Users **should only** change the above mentioned parameters and **should not** change any other parameter values in the mw_maxl_planner.yml file
