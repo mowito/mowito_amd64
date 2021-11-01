@@ -168,7 +168,7 @@ Parameters For tuning Oscillations:
    * **av_osc_sample_window** : <float> default value is  1.0 time period/window over which frequency of oscillation is calculated
    * **av_osc_freq_threshold** : <float value> if the frequency of change in oscillation magnitude per av_osc_sample_window is more than this value, it is considered an oscillation
 * **pathFolder path for the set of path search config files**
-   * **For example shown below will find the the package called mw_mprims, navigates to path folder and parameters will be loaded from mw_mprims_1x0_0x9
+   * For example shown below will find the the package called mw_mprims, navigates to path folder and parameters will be loaded from mw_mprims_1x0_0x9
    * **Note** : in the above file 1x0 is 1.0m path length and 0x9 is 0.9m search_radius from the center of the robot
 
    * **Note** : paths folder located in mw_mprims package
